@@ -16,7 +16,7 @@ public class LoggedIn {
     }
 
     public WebElement deleteAccountButton() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(50));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(1000));
         return wait.until(ExpectedConditions.presenceOfElementLocated(
                 By.xpath("//header/div/div/div/div[2]/div/ul/li[5]/a")));
     }

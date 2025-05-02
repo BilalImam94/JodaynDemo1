@@ -29,13 +29,6 @@
         <lombok-version>1.18.38</lombok-version>
     </properties>
 
-    <repositories>
-        <repository>
-            <id>allure</id>
-            <url>https://plugins.gradle.org/m2/</url>
-        </repository>
-    </repositories>
-
     <dependencies>
         <!-- Selenium -->
         <dependency>
@@ -51,7 +44,7 @@
             <version>${testng-version}</version>
         </dependency>
 
-        <!-- Allure TestNG -->
+        <!-- Allure -->
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-testng</artifactId>
@@ -129,18 +122,18 @@
 
     <build>
         <plugins>
-            <!-- Compiler Plugin -->
+            <!-- Compiler -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.14.0</version>
                 <configuration>
-                    <source>19</source>
-                    <target>19</target>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
                 </configuration>
             </plugin>
 
-            <!-- Surefire Plugin (No listener added here) -->
+            <!-- Surefire for TestNG + Allure -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -155,21 +148,20 @@
                     <systemProperties>
                         <property>
                             <name>allure.results.directory</name>
-<!--                            <value>${project.build.directory}/allure-results</value>-->
-                            <value>C:\ProgramData\Jenkins\.jenkins\workspace\Jodayn-Test-Automation\allure-results</value>
+                            <value>${project.build.directory}/allure-results</value>
                         </property>
                     </systemProperties>
                 </configuration>
             </plugin>
 
-            <!-- Exec Plugin to Generate & Open Allure Report -->
+            <!-- Exec Plugin to Generate Allure Report -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>3.1.0</version>
                 <executions>
                     <execution>
-                        <id>allure-report</id>
+                        <id>generate-allure-report</id>
                         <phase>verify</phase>
                         <goals>
                             <goal>exec</goal>
@@ -178,7 +170,12 @@
                             <executable>cmd</executable>
                             <arguments>
                                 <argument>/c</argument>
-                                <argument>if exist target\allure-results (C:\Tools\allure-2.34.0\bin\allure.bat generate target\allure-results -o target\allure-report --clean &amp;&amp; C:\Tools\allure-2.34.0\bin\allure.bat open target\allure-report) else echo No allure results found</argument>
+                                <argument>C:\Tools\allure-2.34.0\bin\allure.bat</argument>
+                                <argument>generate</argument>
+                                <argument>${project.build.directory}\allure-results</argument>
+                                <argument>-o</argument>
+                                <argument>${project.build.directory}\allure-report</argument>
+                                <argument>--clean</argument>
                             </arguments>
                         </configuration>
                     </execution>
