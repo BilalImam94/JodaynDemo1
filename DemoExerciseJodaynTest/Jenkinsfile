@@ -1,0 +1,56 @@
+pipeline {
+    agent any
+
+    environment {
+        ALLURE_RESULTS_DIR = 'target/allure-results'
+        ALLURE_REPORT_DIR = 'target/allure-report'
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                // Checkout the code from the repository
+                checkout scm
+            }
+        }
+
+        stage('Build') {
+            steps {
+                // Clean, compile, and test the project
+                script {
+                    sh 'mvn clean test'
+                }
+            }
+        }
+
+        stage('Generate Allure Report') {
+            steps {
+                // Generate Allure report
+                script {
+                    // Run the Allure report generation command if allure-results exists
+                    if (fileExists(ALLURE_RESULTS_DIR)) {
+                        sh "allure generate ${ALLURE_RESULTS_DIR} -o ${ALLURE_REPORT_DIR} --clean"
+                    } else {
+                        echo "No allure-results found"
+                    }
+                }
+            }
+        }
+
+        stage('Publish Allure Report') {
+            steps {
+                // Publish the Allure report as an artifact for Jenkins to display
+                script {
+                    allure includeProperties: false, jdk: '', results: [[path: ALLURE_REPORT_DIR]]
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+            // Clean up any generated files, if needed
+            cleanWs()
+        }
+    }
+}

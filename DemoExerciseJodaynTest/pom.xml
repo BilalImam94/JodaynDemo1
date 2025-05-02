@@ -23,7 +23,7 @@
         <slf4j-version>2.1.0-alpha1</slf4j-version>
         <commons-io-version>2.19.0</commons-io-version>
         <poi-version>5.2.3</poi-version>
-        <aspectjweaver-version>1.9.19</aspectjweaver-version>
+        <aspectjweaver-version>1.9.24</aspectjweaver-version>
         <json-simple-version>1.1.1</json-simple-version>
         <annotations-version>26.0.2</annotations-version>
         <lombok-version>1.18.38</lombok-version>
@@ -83,11 +83,6 @@
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
             <version>${commons-io-version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-api</artifactId>
-            <version>${log4j-version}</version>
         </dependency>
 
         <!-- Excel -->
@@ -150,17 +145,16 @@
                     <suiteXmlFiles>
                         <suiteXmlFile>testing.xml</suiteXmlFile>
                     </suiteXmlFiles>
+                    <properties>
+                        <property>
+                            <name>listener</name>
+                            <value>io.qameta.allure.testng.AllureTestNg</value>
+                        </property>
+                    </properties>
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                     </argLine>
                 </configuration>
-            </plugin>
-
-            <!-- Allure Plugin -->
-            <plugin>
-                <groupId>io.qameta.allure</groupId>
-                <artifactId>allure-maven</artifactId>
-                <version>2.29.1</version>
             </plugin>
 
             <!-- Exec Plugin to Generate & Open Allure Report -->
@@ -179,7 +173,7 @@
                             <executable>cmd</executable>
                             <arguments>
                                 <argument>/c</argument>
-                                <argument>C:\Tools\allure-2.29.0\bin\allure.bat generate target/allure-results -o target/allure-report --clean &amp;&amp; C:\Tools\allure-2.29.0\bin\allure.bat open target/allure-report</argument>
+                                <argument>if exist target\allure-results (C:\Tools\allure-2.34.0\bin\allure.bat generate target\allure-results -o target\allure-report --clean &amp;&amp; C:\Tools\allure-2.34.0\bin\allure.bat open target\allure-report) else echo No allure results found</argument>
                             </arguments>
                         </configuration>
                     </execution>
