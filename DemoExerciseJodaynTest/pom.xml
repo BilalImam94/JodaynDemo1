@@ -152,6 +152,13 @@
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                     </argLine>
+                    <systemProperties>
+                        <property>
+                            <name>allure.results.directory</name>
+<!--                            <value>${project.build.directory}/allure-results</value>-->
+                            <value>C:\ProgramData\Jenkins\.jenkins\workspace\Jodayn-Test-Automation\allure-results</value>
+                        </property>
+                    </systemProperties>
                 </configuration>
             </plugin>
 
