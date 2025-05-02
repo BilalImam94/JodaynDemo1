@@ -29,29 +29,29 @@
         <lombok-version>1.18.38</lombok-version>
     </properties>
 
+    <repositories>
+        <repository>
+            <id>allure</id>
+            <url>https://plugins.gradle.org/m2/</url>
+        </repository>
+    </repositories>
+
     <dependencies>
-        <!-- Selenium -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <version>${selenium-version}</version>
         </dependency>
-
-        <!-- TestNG -->
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>${testng-version}</version>
         </dependency>
-
-        <!-- Allure -->
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-testng</artifactId>
             <version>${allure-testng-version}</version>
         </dependency>
-
-        <!-- Logging -->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
@@ -67,52 +67,38 @@
             <artifactId>slf4j-simple</artifactId>
             <version>${slf4j-version}</version>
         </dependency>
-
-        <!-- ExtentReports -->
         <dependency>
             <groupId>com.aventstack</groupId>
             <artifactId>extentreports</artifactId>
             <version>${extentreports-version}</version>
         </dependency>
-
-        <!-- Commons IO -->
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
             <version>${commons-io-version}</version>
         </dependency>
-
-        <!-- Excel -->
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi</artifactId>
             <version>${poi-version}</version>
         </dependency>
-
-        <!-- JSON -->
         <dependency>
             <groupId>com.googlecode.json-simple</groupId>
             <artifactId>json-simple</artifactId>
             <version>${json-simple-version}</version>
         </dependency>
-
-        <!-- AspectJ -->
         <dependency>
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjweaver</artifactId>
             <version>${aspectjweaver-version}</version>
             <scope>runtime</scope>
         </dependency>
-
-        <!-- Lombok -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>${lombok-version}</version>
             <scope>provided</scope>
         </dependency>
-
-        <!-- JetBrains Annotations -->
         <dependency>
             <groupId>org.jetbrains</groupId>
             <artifactId>annotations</artifactId>
@@ -122,18 +108,16 @@
 
     <build>
         <plugins>
-            <!-- Compiler -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.14.0</version>
                 <configuration>
-                    <source>${maven.compiler.source}</source>
-                    <target>${maven.compiler.target}</target>
+                    <source>19</source>
+                    <target>19</target>
                 </configuration>
             </plugin>
 
-            <!-- Surefire for TestNG + Allure -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -154,12 +138,18 @@
                 </configuration>
             </plugin>
 
-            <!-- Exec Plugin to Generate Allure Report -->
+            <plugin>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+                <version>2.15.2</version>
+            </plugin>
+
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>3.1.0</version>
                 <executions>
+                    <!-- Generate Allure Report after tests -->
                     <execution>
                         <id>generate-allure-report</id>
                         <phase>verify</phase>
@@ -167,15 +157,29 @@
                             <goal>exec</goal>
                         </goals>
                         <configuration>
-                            <executable>cmd</executable>
+                            <executable>allure</executable>
                             <arguments>
-                                <argument>/c</argument>
-                                <argument>C:\Tools\allure-2.34.0\bin\allure.bat</argument>
                                 <argument>generate</argument>
-                                <argument>${project.build.directory}\allure-results</argument>
+                                <argument>${project.build.directory}/allure-results</argument>
                                 <argument>-o</argument>
-                                <argument>${project.build.directory}\allure-report</argument>
+                                <argument>${project.build.directory}/allure-report</argument>
                                 <argument>--clean</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+
+                    <!-- Automatically Open Allure Report after generation -->
+                    <execution>
+                        <id>open-allure-report</id>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>allure</executable>
+                            <arguments>
+                                <argument>open</argument>
+                                <argument>${project.build.directory}/allure-report</argument>
                             </arguments>
                         </configuration>
                     </execution>

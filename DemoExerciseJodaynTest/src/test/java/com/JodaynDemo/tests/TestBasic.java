@@ -4,6 +4,7 @@ import com.JodaynDemo.utils.BrowserManager;
 import com.JodaynDemo.utils.PropertiesLoader;
 import com.JodaynDemo.utils.Util;
 import io.qameta.allure.Allure;
+import io.qameta.allure.testng.AllureTestNg;
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
@@ -11,7 +12,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 
 import java.io.IOException;
-
+@Listeners({AllureTestNg.class})
 public class TestBasic {
 
     protected static ThreadLocal<WebDriver> tdriver = new ThreadLocal<>();
