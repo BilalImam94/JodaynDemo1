@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite" parallel="methods" thread-count="1">
+    <listeners>
+        <listener class-name="io.qameta.allure.testng.AllureTestNg"/>
+    </listeners>
+    <test name="Test">
+        <classes>
+            <class name="com.JodaynDemo.tests.TC1_UserRegistration"/>
+            <class name="com.JodaynDemo.tests.TC2_LoginWithCorrectCredentials"/>
+            <class name="com.JodaynDemo.tests.TC3_LoginWithIncorrectCredentials"/>
+            <class name="com.JodaynDemo.tests.TC4_UserLogOut"/>
+            <class name="com.JodaynDemo.tests.TC5_RegistrationWithExistingEmail"/>
+            <class name="com.JodaynDemo.tests.TC6_ContactUs"/>
+        </classes>
+    </test>
+</suite>
