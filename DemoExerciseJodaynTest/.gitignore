@@ -1,2 +1,6 @@
-/.idea/
+# Ignore all Maven build output
 /target/
+
+# Optional: specifically ignore Allure results
+/target/allure-results/
+/target/allure-report/
