@@ -3,6 +3,7 @@
 <suite name="Suite" parallel="methods" thread-count="1">
     <listeners>
         <listener class-name="io.qameta.allure.testng.AllureTestNg"/>
+        <listener class-name="com.JodaynDemo.listeners.JiraFailureListener"/>
     </listeners>
     <test name="Test">
         <classes>
