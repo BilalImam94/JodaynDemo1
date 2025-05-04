@@ -10,10 +10,10 @@ import java.io.IOException;
 
 @Epic("Regression Tests")
 @Feature("Place Order")
-public class TC14_OrderPlaceRegisterBeforeCheckout extends TestBasic {
+public class TC15_OrderPlaceRegisterBeforeCheckout extends TestBasic {
 
     String name = "name" + Util.generateCurrentDateAndTime();
-    String email = "email" + Util.generateCurrentDateAndTime() + "@o2.pl";
+    String email = "email" + Util.generateCurrentDateAndTime() + "@testtt.jd";
 
     @Test(description = "Test Case 15: Place Order: Register before Checkout")
     @Severity(SeverityLevel.CRITICAL)
@@ -39,12 +39,12 @@ public class TC14_OrderPlaceRegisterBeforeCheckout extends TestBasic {
             18. Verify that 'ACCOUNT DELETED!' and click 'Continue' button""")
     public void placeOrderRegisterBeforeCheckout() throws IOException, ParseException {
         TC1_UserRegistration.verifyThatHomePageIsVisibleSuccessfully();
-        TC15_OrderPlaceRegisterDuringCheckout.verifyAccountCreatedAndClickContinueButton(name, email);
-        TC15_OrderPlaceRegisterDuringCheckout.verifyLoggedInAsUsernameAtTop(name);
-        TC15_OrderPlaceRegisterDuringCheckout.verifyThatCartPageIsDisplayed();
+        TC14_OrderPlaceRegisterDuringCheckout.verifyAccountCreatedAndClickContinueButton(name, email);
+        TC14_OrderPlaceRegisterDuringCheckout.verifyLoggedInAsUsernameAtTop(name);
+        TC14_OrderPlaceRegisterDuringCheckout.verifyThatCartPageIsDisplayed();
         new Cart(getDriver()).proceedToCheckoutButtonClick();
-        TC15_OrderPlaceRegisterDuringCheckout.verifyAddressDetailsAndReviewYourOrder();
-        TC15_OrderPlaceRegisterDuringCheckout.verifySuccessMessageCongratulationsYourOrderHasBeenConfirmed();
+        TC14_OrderPlaceRegisterDuringCheckout.verifyAddressDetailsAndReviewYourOrder();
+        TC14_OrderPlaceRegisterDuringCheckout.verifySuccessMessageCongratulationsYourOrderHasBeenConfirmed();
         TC1_UserRegistration.verifyThatAccountDeletedIsVisibleAndClickContinueButton();
     }
 }

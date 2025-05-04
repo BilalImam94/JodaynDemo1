@@ -4,6 +4,7 @@ import io.qameta.allure.Attachment;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class Util {
 
@@ -20,4 +21,5 @@ public class Util {
     public static String attachTextLog(String message, String s) {
         return message;
     }
+
 }

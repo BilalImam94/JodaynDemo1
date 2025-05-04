@@ -1,5 +1,6 @@
 package com.JodaynDemo.pages;
 
+import com.JodaynDemo.utils.ExcelReader;
 import com.JodaynDemo.utils.JSONReader;
 import com.JodaynDemo.utils.SeleniumHelper;
 import org.json.simple.parser.ParseException;
@@ -9,6 +10,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
 import java.io.IOException;
+import java.util.Map;
 
 public class Payments {
 
@@ -67,6 +69,31 @@ public class Payments {
         expirationYearInput().sendKeys(JSONReader.paymentDetails("expirationYear"));
         payAndConfirmOrderButton().click();
         return this;
+    }
+
+    public Payments fillPaymentDetailsFromExcel() throws IOException {
+        Map<String, String> paymentData = ExcelReader.readDetails("PaymentDetails");
+
+        // Log the data read from Excel
+        System.out.println("Payment Data from Excel:");
+        paymentData.forEach((k, v) -> System.out.println(k + " => " + v));
+
+        sendKeysIfPresent(nameOnCardInput(), paymentData.get("nameOnCard"));
+        sendKeysIfPresent(cardNumberInput(), paymentData.get("cardNumber"));
+        sendKeysIfPresent(cvcInput(), paymentData.get("cvc"));
+        sendKeysIfPresent(expirationMonthInput(), paymentData.get("expirationMonth"));
+        sendKeysIfPresent(expirationYearInput(), paymentData.get("expirationYear"));
+
+        payAndConfirmOrderButton().click();
+        return this;
+    }
+
+    private void sendKeysIfPresent(WebElement element, String value) {
+        if (value != null && !value.trim().isEmpty()) {
+            element.sendKeys(value.trim());
+        } else {
+            System.out.println("Warning: Skipping field due to missing value.");
+        }
     }
 
     public WebElement getSuccessMessage() {

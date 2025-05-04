@@ -30,7 +30,7 @@ public class TC3_LoginWithIncorrectCredentials extends TestBasic {
 
     @Step("Verify error 'Your email or password is incorrect!' is visible")
     private void verifyErrorYourEmailOrPasswordIsIncorrectIsVisible() {
-        String email = "email" + Util.generateCurrentDateAndTime() + "@incorrect.pl";
+        String email = "email" + Util.generateCurrentDateAndTime() + "@testtt.jd";;
         String password = "pass" + Util.generateCurrentDateAndTime();
 
         String errorLoginText = new SignUpAndLogin(getDriver())

@@ -1,7 +1,6 @@
 package com.JodaynDemo.listeners;
 
 import com.JodaynDemo.utils.JiraRestClient;
-import org.jetbrains.annotations.NotNull;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
@@ -9,14 +8,17 @@ public class JiraFailureListener implements ITestListener {
 
     @Override
     public void onTestFailure(ITestResult result) {
-        Throwable throwable = result.getThrowable();
-        String errorType = throwable.getClass().getName(); // e.g., java.lang.AssertionError
+        Throwable error = result.getThrowable();
+        if (error == null) return;
 
-        String errorDetails = throwable.getMessage(); // Message like: Verify that 'ACCOUNT DELETED!' is visible
-
-        String description = getString(throwable, errorDetails, errorType);
+        String errorType = error.getClass().getName(); // e.g., java.lang.AssertionError
+        String errorMessage = error.getMessage();      // Message like: Verify that 'ACCOUNT DELETED!' is visible
 
         String summary = "Test failed: " + result.getMethod().getMethodName();
+
+        // Optionally log or store extracted info here using getDescription
+        String descriptionSummary = getDescription(error, errorMessage, errorType);
+        System.out.println("Preparing to log JIRA issue with description:\n" + descriptionSummary);
 
         JiraRestClient.createIssue(
                 "bimam9@gmail.com",
@@ -24,27 +26,25 @@ public class JiraFailureListener implements ITestListener {
                 "https://bimam9.atlassian.net/",
                 "JOD",
                 summary,
-                description
+                error // Full stack trace will now be logged in description
         );
     }
 
-    private static @NotNull String getString(Throwable throwable, String errorDetails, String errorType) {
+    private String getDescription(Throwable throwable, String message, String errorType) {
         String expected = "";
         String actual = "";
 
-        // Extract Expected and Actual if they are available in the message
-        if (throwable instanceof AssertionError && errorDetails != null && errorDetails.contains("Expected")) {
-            String[] lines = errorDetails.split("\\r?\\n");
+        if (throwable instanceof AssertionError && message != null && message.contains("expected")) {
+            String[] lines = message.split("\\r?\\n");
             for (String line : lines) {
-                if (line.trim().startsWith("Expected")) expected = line.trim();
-                if (line.trim().startsWith("Actual")) actual = line.trim();
+                if (line.toLowerCase().contains("expected")) expected = line.trim();
+                if (line.toLowerCase().contains("actual")) actual = line.trim();
             }
         }
 
-        String description = "Error Type: " + errorType + "\n"
-                + "Error Message: " + errorDetails + "\n"
+        return "Error Type: " + errorType + "\n"
+                + "Error Message: " + message + "\n"
                 + expected + "\n"
                 + actual;
-        return description;
     }
 }

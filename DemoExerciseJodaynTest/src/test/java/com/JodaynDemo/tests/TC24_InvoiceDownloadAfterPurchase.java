@@ -15,7 +15,7 @@ import java.io.IOException;
 public class TC24_InvoiceDownloadAfterPurchase extends TestBasic {
 
     String name = "name" + Util.generateCurrentDateAndTime();
-    String email = "email" + Util.generateCurrentDateAndTime() + "@o2.pl";
+    String email = "email" + Util.generateCurrentDateAndTime() + "@testtt.jd";
 
     @Test(description = "Test Case 24: Download Invoice after purchase order")
     @Severity(SeverityLevel.CRITICAL)
@@ -45,11 +45,11 @@ public class TC24_InvoiceDownloadAfterPurchase extends TestBasic {
             22. Verify 'ACCOUNT DELETED!' and click 'Continue' button""")
     public void downloadInvoiceAfterPurchaseOrder() throws IOException, ParseException {
         TC1_UserRegistration.verifyThatHomePageIsVisibleSuccessfully();
-        TC15_OrderPlaceRegisterDuringCheckout.verifyThatCartPageIsDisplayed();
-        TC15_OrderPlaceRegisterDuringCheckout.verifyAccountCreatedAndClickContinueButton(name, email);
-        TC15_OrderPlaceRegisterDuringCheckout.verifyLoggedInAsUsernameAtTop(name);
-        TC15_OrderPlaceRegisterDuringCheckout.verifyAddressDetailsAndReviewYourOrder();
-        TC15_OrderPlaceRegisterDuringCheckout.verifySuccessMessageCongratulationsYourOrderHasBeenConfirmed();
+        TC14_OrderPlaceRegisterDuringCheckout.verifyThatCartPageIsDisplayed();
+        TC14_OrderPlaceRegisterDuringCheckout.verifyAccountCreatedAndClickContinueButton(name, email);
+        TC14_OrderPlaceRegisterDuringCheckout.verifyLoggedInAsUsernameAtTop(name);
+        TC14_OrderPlaceRegisterDuringCheckout.verifyAddressDetailsAndReviewYourOrder();
+        TC14_OrderPlaceRegisterDuringCheckout.verifySuccessMessageCongratulationsYourOrderHasBeenConfirmed();
         clickDownloadInvoiceButtonAndVerifyInvoiceIsDownloadedSuccessfully();
         new Payments(getDriver()).continueButtonClick();
         TC1_UserRegistration.verifyThatAccountDeletedIsVisibleAndClickContinueButton();

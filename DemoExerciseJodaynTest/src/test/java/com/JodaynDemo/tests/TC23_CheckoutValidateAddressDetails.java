@@ -12,7 +12,7 @@ import java.io.IOException;
 public class TC23_CheckoutValidateAddressDetails extends TestBasic {
 
     String name = "name" + Util.generateCurrentDateAndTime();
-    String email = "email" + Util.generateCurrentDateAndTime() + "@o2.pl";
+    String email = "email" + Util.generateCurrentDateAndTime() + "@testtt.jd";
 
     @Test(description = "Test Case 23: Verify address details in checkout page")
     @Severity(SeverityLevel.CRITICAL)
@@ -34,15 +34,15 @@ public class TC23_CheckoutValidateAddressDetails extends TestBasic {
             14. Verify 'ACCOUNT DELETED!' and click 'Continue' button""")
     public void verifyAddressDetailsInCheckoutPage() throws IOException, ParseException {
         TC1_UserRegistration.verifyThatHomePageIsVisibleSuccessfully();
-        TC15_OrderPlaceRegisterDuringCheckout.verifyAccountCreatedAndClickContinueButton(name, email);
-        TC15_OrderPlaceRegisterDuringCheckout.verifyLoggedInAsUsernameAtTop(name);
-        TC15_OrderPlaceRegisterDuringCheckout.verifyThatCartPageIsDisplayed();
+        TC14_OrderPlaceRegisterDuringCheckout.verifyAccountCreatedAndClickContinueButton(name, email);
+        TC14_OrderPlaceRegisterDuringCheckout.verifyLoggedInAsUsernameAtTop(name);
+        TC14_OrderPlaceRegisterDuringCheckout.verifyThatCartPageIsDisplayed();
         verifyThatTheDeliveryAddressAndTheBillingAddressIsSameAddressFilledAtTheTimeRegistrationOfAccount();
         TC1_UserRegistration.verifyThatAccountDeletedIsVisibleAndClickContinueButton();
     }
 
     @Step("Verify that the delivery address and the billing address is same address filled at the time registration of account")
     private void verifyThatTheDeliveryAddressAndTheBillingAddressIsSameAddressFilledAtTheTimeRegistrationOfAccount() throws IOException, ParseException {
-        TC15_OrderPlaceRegisterDuringCheckout.verifyAddressDetails();
+        TC14_OrderPlaceRegisterDuringCheckout.verifyAddressDetails();
     }
 }

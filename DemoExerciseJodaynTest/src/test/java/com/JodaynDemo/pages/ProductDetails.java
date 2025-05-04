@@ -1,14 +1,18 @@
 package com.JodaynDemo.pages;
 
+import com.JodaynDemo.utils.ExcelReader;
 import com.JodaynDemo.utils.JSONReader;
 import com.JodaynDemo.utils.SeleniumHelper;
+import com.JodaynDemo.utils.Util;
 import org.json.simple.parser.ParseException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
 
 import java.io.IOException;
+import java.util.Map;
 
 public class ProductDetails {
 
@@ -133,6 +137,42 @@ public class ProductDetails {
         submitButton().click();
         return this;
     }
+
+    public ProductDetails fillReviewExcel() throws IOException {
+        // Read review data from Excel
+        Map<String, String> reviewData = ExcelReader.readDetails("ExistingUser");
+
+        // Log the data read from Excel (you can remove this if unnecessary)
+        System.out.println("Review Data from Excel:");
+        reviewData.forEach((k, v) -> System.out.println(k + " => " + v));
+
+        // Fill in the review fields using the data from the Excel file
+        sendKeysIfPresent(yourNameInput(), reviewData.get("name"));
+        sendKeysIfPresent(emailAddress(), reviewData.get("email"));
+        sendKeysIfPresent(addReviewHere(), reviewData.get("reviewText"));
+
+        // Submit the review
+        submitButton().click();
+
+        return this;
+    }
+
+    private void sendKeysIfPresent(WebElement element, String value) {
+        if (value != null && !value.trim().isEmpty()) {
+            element.sendKeys(value.trim());
+        } else {
+            System.out.println("Warning: Skipping field due to missing value.");
+        }
+    }
+
+    private void selectValueIfPresent(WebElement dropdown, String value) {
+        if (value != null && !value.trim().isEmpty()) {
+            new Select(dropdown).selectByValue(value.trim());
+        } else {
+            System.out.println("Warning: Skipping dropdown due to missing value.");
+        }
+    }
+
 
     public WebElement getSuccessMessage() {
         return successMessage();

@@ -14,7 +14,7 @@ import java.io.IOException;
 public class TC1_UserRegistration extends TestBasic {
 
     String name = "name" + Util.generateCurrentDateAndTime();
-    String email = "email" + Util.generateCurrentDateAndTime() + "@o2.pl";
+    String email = "email" + Util.generateCurrentDateAndTime() + "@testtt.jd";
 
     @Test(description = "TC1 - UserRegistration")
     @Severity(SeverityLevel.CRITICAL)
@@ -76,7 +76,7 @@ public class TC1_UserRegistration extends TestBasic {
     @Step("Verify that 'ACCOUNT CREATED!' is visible")
     private void verifyThatAccountCreatedIsVisible() throws IOException, ParseException {
         String accountCreatedText = new AccountInformation(getDriver())
-                .fillAccountDetails()
+                .fillAccountDetailsFromExcel()
                 .getAccountCreated()
                 .getText();
         Assert.assertEquals(accountCreatedText, "ACCOUNT CREATED!", "Verify that 'ACCOUNT CREATED!' is visible");
@@ -97,7 +97,7 @@ public class TC1_UserRegistration extends TestBasic {
                 .deleteAccountButtonClick()
                 .getAccountDeleted()
                 .getText();
-        Assert.assertEquals(accountDeletedText, "ACCOUNT DELETED!E-commerce solution", "Verify that 'ACCOUNT DELETED!' is visible");
+        Assert.assertEquals(accountDeletedText, "ACCOUNT DELETED!E-commerce solutions", "Verify that 'ACCOUNT DELETED!' is visible");
         new DeleteAccount(getDriver()).continueButtonClick();
     }
 }

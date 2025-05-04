@@ -13,10 +13,10 @@ import java.util.List;
 
 @Epic("Regression Tests")
 @Feature("Place Order")
-public class TC15_OrderPlaceRegisterDuringCheckout extends TestBasic {
+public class TC14_OrderPlaceRegisterDuringCheckout extends TestBasic {
 
     String name = "name" + Util.generateCurrentDateAndTime();
-    String email = "email" + Util.generateCurrentDateAndTime() + "@o2.pl";
+    String email = "email" + Util.generateCurrentDateAndTime() + "@testtt.jd";
 
     @Test(description = "Test Case 14: Place Order: Register while Checkout")
     @Severity(SeverityLevel.CRITICAL)
@@ -66,7 +66,7 @@ public class TC15_OrderPlaceRegisterDuringCheckout extends TestBasic {
         String accountCreatedText = new Home(getDriver())
                 .signupLoginClick()
                 .fillCorrectSignup(name, email)
-                .fillAccountDetails()
+                .fillAccountDetailsFromExcel()
                 .getAccountCreated()
                 .getText();
         Assert.assertEquals(accountCreatedText, "ACCOUNT CREATED!", "Verify 'ACCOUNT CREATED!'");
@@ -78,7 +78,7 @@ public class TC15_OrderPlaceRegisterDuringCheckout extends TestBasic {
         String username = new LoggedIn(getDriver())
                 .getUsername()
                 .getText();
-        Assert.assertEquals(username, name, "Verify ' Logged in as username' at top");
+        Assert.assertEquals(username, "Logged in as "+name, "Logged in as "+username);
     }
 
     @Step("Verify Address Details and Review Your Order")
@@ -135,8 +135,8 @@ public class TC15_OrderPlaceRegisterDuringCheckout extends TestBasic {
     @Step("Verify success message 'Congratulations! Your order has been confirmed!'")
     public static void verifySuccessMessageCongratulationsYourOrderHasBeenConfirmed() throws IOException, ParseException {
         String alertSuccessText = new CheckOut(getDriver())
-                .enterComment("Sed fringilla aliquet turpis, ut vestibulum orci vulputate sit amet.")
-                .fillPaymentDetails()
+                .enterComment("Test Comment")
+                .fillPaymentDetailsFromExcel()
                 .getSuccessMessage()
                 .getText();
         Assert.assertEquals(alertSuccessText, "Congratulations! Your order has been confirmed!", "Verify success message 'Congratulations! Your order has been confirmed!'");

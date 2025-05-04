@@ -1,6 +1,7 @@
 package com.JodaynDemo.pages;
 
 import com.JodaynDemo.tests.TestBasic;
+import com.JodaynDemo.utils.ExcelReader;
 import com.JodaynDemo.utils.JSONReader;
 import com.JodaynDemo.utils.Util;
 import org.json.simple.parser.ParseException;
@@ -11,6 +12,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
 import java.io.IOException;
+import java.util.Map;
 
 public class AccountInformation extends TestBasic {
 
@@ -127,4 +129,56 @@ public class AccountInformation extends TestBasic {
         createAccountButton().click();
         return new CreateAccount(driver);
     }
+
+    public CreateAccount fillAccountDetailsFromExcel() throws IOException {
+        Map<String, String> accountData = ExcelReader.readDetails("AccountDetails");
+
+        // Log the data read from Excel
+        System.out.println("Account Data from Excel:");
+        accountData.forEach((k, v) -> System.out.println(k + " => " + v));
+
+        String password = "pass" + Util.generateCurrentDateAndTime();
+        titleMrCheckbox().click();
+        passwordInput().sendKeys(password);
+
+        selectValueIfPresent(daysSelect(), accountData.get("day"));
+        selectValueIfPresent(monthsSelect(), accountData.get("month"));
+        selectValueIfPresent(yearsSelect(), accountData.get("year"));
+
+        newsletterCheckbox().click();
+        specialOffersCheckbox().click();
+
+        sendKeysIfPresent(firstNameInput(), accountData.get("firstName"));
+        sendKeysIfPresent(lastNameInput(), accountData.get("lastName"));
+        sendKeysIfPresent(companyInput(), accountData.get("company"));
+        sendKeysIfPresent(address1Input(), accountData.get("address1"));
+        sendKeysIfPresent(address2Input(), accountData.get("address2"));
+
+        selectValueIfPresent(countrySelect(), accountData.get("country"));
+
+        sendKeysIfPresent(stateInput(), accountData.get("state"));
+        sendKeysIfPresent(cityInput(), accountData.get("city"));
+        sendKeysIfPresent(zipcodeInput(), accountData.get("zipcode"));
+        sendKeysIfPresent(mobileNumberInput(), accountData.get("mobileNumber"));
+
+        createAccountButton().click();
+        return new CreateAccount(driver);
+    }
+
+    private void sendKeysIfPresent(WebElement element, String value) {
+        if (value != null && !value.trim().isEmpty()) {
+            element.sendKeys(value.trim());
+        } else {
+            System.out.println("Warning: Skipping field due to missing value.");
+        }
+    }
+
+    private void selectValueIfPresent(WebElement dropdown, String value) {
+        if (value != null && !value.trim().isEmpty()) {
+            new Select(dropdown).selectByValue(value.trim());
+        } else {
+            System.out.println("Warning: Skipping dropdown due to missing value.");
+        }
+    }
+
 }

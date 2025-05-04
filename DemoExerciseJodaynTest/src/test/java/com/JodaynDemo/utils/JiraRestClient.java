@@ -1,5 +1,9 @@
 package com.JodaynDemo.utils;
 
+import org.jetbrains.annotations.NotNull;
+
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -9,24 +13,20 @@ import java.util.Base64;
 public class JiraRestClient {
 
     public static void createIssue(String email, String apiToken, String jiraBaseUrl,
-                                   String projectKey, String summary, String description) {
+                                   String projectKey, String summary, Throwable error) {
 
         try {
             String auth = email + ":" + apiToken;
             String encodedAuth = Base64.getEncoder().encodeToString(auth.getBytes());
 
-            //Sanitize summary and description
+            // Format summary and stack trace
             String safeSummary = summary.replace("\"", "\\\"");
-            String safeDescription = description.replace("\"", "\\\"").replace("\n", "\\n");
 
-            String json = "{\n" +
-                    "  \"fields\": {\n" +
-                    "    \"project\": {\"key\": \"" + projectKey + "\"},\n" +
-                    "    \"summary\": \"" + safeSummary + "\",\n" +
-                    "    \"description\": \"" + safeDescription + "\",\n" +
-                    "    \"issuetype\": {\"name\": \"Bug\"}\n" +
-                    "  }\n" +
-                    "}";
+            // Convert stack trace to String
+            StringWriter sw = new StringWriter();
+            PrintWriter pw = new PrintWriter(sw);
+            error.printStackTrace(pw);
+            String json = getString(projectKey, sw, safeSummary);
 
             HttpRequest request = HttpRequest.newBuilder()
                     .uri(URI.create(jiraBaseUrl + "rest/api/2/issue"))
@@ -53,4 +53,20 @@ public class JiraRestClient {
         }
     }
 
+    private static @NotNull String getString(String projectKey, StringWriter sw, String safeSummary) {
+        String stackTrace = sw.toString();
+
+        // Escape JSON-unfriendly characters
+        String safeDescription = stackTrace.replace("\"", "\\\"").replace("\n", "\\n");
+
+        String json = "{\n" +
+                "  \"fields\": {\n" +
+                "    \"project\": {\"key\": \"" + projectKey + "\"},\n" +
+                "    \"summary\": \"" + safeSummary + "\",\n" +
+                "    \"description\": \"" + safeDescription + "\",\n" +
+                "    \"issuetype\": {\"name\": \"Bug\"}\n" +
+                "  }\n" +
+                "}";
+        return json;
+    }
 }

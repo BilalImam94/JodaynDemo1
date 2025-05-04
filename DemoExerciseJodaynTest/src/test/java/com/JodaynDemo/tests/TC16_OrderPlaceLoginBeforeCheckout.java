@@ -40,10 +40,10 @@ public class TC16_OrderPlaceLoginBeforeCheckout extends TestBasic {
                 .signupLoginClick()
                 .fillCorrectLogin(JSONReader.existingUser("email"), JSONReader.existingUser("password"));
         verifyLoggedInAsUsernameAtTop();
-        TC15_OrderPlaceRegisterDuringCheckout.verifyThatCartPageIsDisplayed();
+        TC14_OrderPlaceRegisterDuringCheckout.verifyThatCartPageIsDisplayed();
         new Cart(getDriver()).proceedToCheckoutButtonClick();
-        TC15_OrderPlaceRegisterDuringCheckout.verifyAddressDetailsAndReviewYourOrder();
-        TC15_OrderPlaceRegisterDuringCheckout.verifySuccessMessageCongratulationsYourOrderHasBeenConfirmed();
+        TC14_OrderPlaceRegisterDuringCheckout.verifyAddressDetailsAndReviewYourOrder();
+        TC14_OrderPlaceRegisterDuringCheckout.verifySuccessMessageCongratulationsYourOrderHasBeenConfirmed();
     }
 
     @Step("Verify 'Logged in as username' at top")

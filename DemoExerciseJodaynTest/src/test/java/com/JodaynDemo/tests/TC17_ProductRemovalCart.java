@@ -23,7 +23,7 @@ public class TC17_ProductRemovalCart extends TestBasic {
             8. Verify that product is removed from the cart""")
     public void removeProductsFromCart() {
         TC1_UserRegistration.verifyThatHomePageIsVisibleSuccessfully();
-        TC15_OrderPlaceRegisterDuringCheckout.verifyThatCartPageIsDisplayed();
+        TC14_OrderPlaceRegisterDuringCheckout.verifyThatCartPageIsDisplayed();
         verifyThatProductIsRemovedFromTheCart();
     }
 
