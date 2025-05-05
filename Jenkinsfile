@@ -15,7 +15,6 @@ pipeline {
         stage('Checkout') {
             steps {
                 git credentialsId: 'GitHub_PAT_Bilal', url: 'https://github.com/BilalImam94/JodaynDemo1'
-                }
             }
         }
 
