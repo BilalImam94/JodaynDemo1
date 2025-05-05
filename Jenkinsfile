@@ -14,11 +14,8 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'github-credentials-id', usernameVariable: 'GIT_USER', passwordVariable: 'GIT_TOKEN')]) {
-                    bat """
-                        git clone https://%GIT_USER%:%GIT_TOKEN%@github.com/BilalImam94/JodaynDemo1.git
-                    """
-                }
+                // Checkout the repository (Jenkins handles this automatically)
+                checkout scm
             }
         }
 
