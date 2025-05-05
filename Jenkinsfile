@@ -9,8 +9,8 @@ pipeline {
     environment {
         ALLURE_RESULTS = 'target/allure-results'
         ALLURE_REPORT = 'target/allure-report'
-        GITHUB_USERNAME = 'your-username'  // Replace with your GitHub username
-        GITHUB_TOKEN = 'your-personal-access-token'  // Replace with your GitHub token
+        GITHUB_USERNAME = 'BilalImam94'  // Replace with your GitHub username
+        GITHUB_TOKEN = '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'  // Replace with your GitHub token
     }
 
     stages {
