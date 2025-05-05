@@ -32,7 +32,7 @@ pipeline {
             archiveArtifacts artifacts: "${env.ALLURE_REPORT}/**", allowEmptyArchive: true
 
             // Always publish the Allure report
-            allure includeProperties: false, jdk: '', results: [[path: "${env.ALLURE_RESULTS}"]]
+            allure includeProperties: false, jdk: '', commandline: 'allure', results: [[path: "${env.ALLURE_RESULTS}"]], reportBuildPolicy: 'ALWAYS'
         }
     }
 }
