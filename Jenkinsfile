@@ -14,8 +14,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                withCredentials([string(credentialsId: 'GitHub_PAT_Bilal', variable: 'GITHUB_TOKEN')]) {
-                    git branch: 'main', url: 'https://github.com/BilalImam94/JodaynDemo1.git'
+                git credentialsId: 'GitHub_PAT_Bilal', url: 'https://github.com/BilalImam94/JodaynDemo1'
                 }
             }
         }
