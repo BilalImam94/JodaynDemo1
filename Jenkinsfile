@@ -14,16 +14,17 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                // Use credentials securely
                 withCredentials([usernamePassword(credentialsId: 'github-credentials-id', usernameVariable: 'GIT_USER', passwordVariable: 'GIT_TOKEN')]) {
-                    sh 'git clone https://${GIT_USER}:${GIT_TOKEN}@github.com/BilalImam94/JodaynDemo1.git'
+                    bat """
+                        git clone https://%GIT_USER%:%GIT_TOKEN%@github.com/BilalImam94/JodaynDemo1.git
+                    """
                 }
             }
         }
 
         stage('Build, Test, and Generate Report') {
             steps {
-                sh 'mvn clean verify'
+                bat 'mvn clean verify'
             }
         }
 
