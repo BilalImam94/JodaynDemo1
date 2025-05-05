@@ -27,17 +27,15 @@ pipeline {
                 bat 'mvn clean verify'
             }
         }
-
-        stage('Publish Allure Report') {
-            steps {
-                allure includeProperties: false, jdk: '', results: [[path: "${env.ALLURE_RESULTS}"]]
-            }
-        }
     }
 
     post {
         always {
+            // Always archive the report folder
             archiveArtifacts artifacts: "${env.ALLURE_REPORT}/**", allowEmptyArchive: true
+
+            // Always publish the Allure report
+            allure includeProperties: false, jdk: '', results: [[path: "${env.ALLURE_RESULTS}"]]
         }
     }
 }
