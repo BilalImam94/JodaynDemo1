@@ -29,7 +29,7 @@ pipeline {
     post {
         always {
             // Always archive the report folder
-            archiveArtifacts artifacts: "${env.ALLURE_REPORT}/**", allowEmptyArchive: true
+             archiveArtifacts allowEmptyArchive: true, artifacts: 'allure-report/**', followSymlinks: false
 
             // Always publish the Allure report
             allure includeProperties: false, jdk: '', commandline: 'allure', results: [[path: "${env.ALLURE_RESULTS}"]], reportBuildPolicy: 'ALWAYS'
