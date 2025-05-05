@@ -9,12 +9,18 @@ pipeline {
     environment {
         ALLURE_RESULTS = 'target/allure-results'
         ALLURE_REPORT = 'target/allure-report'
+        GITHUB_USERNAME = 'your-username'  // Replace with your GitHub username
+        GITHUB_TOKEN = 'your-personal-access-token'  // Replace with your GitHub token
     }
 
     stages {
         stage('Checkout') {
             steps {
-                git credentialsId: 'GitHub_PAT_Bilal', url: 'https://github.com/BilalImam94/JodaynDemo1'
+                script {
+                    // Use the GitHub username and token for authentication in the URL
+                    def gitUrl = "https://${GITHUB_USERNAME}:${GITHUB_TOKEN}@github.com/BilalImam94/JodaynDemo1.git"
+                    git url: gitUrl, branch: 'main'  // Replace 'main' with your branch if needed
+                }
             }
         }
 
