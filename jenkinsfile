@@ -1,0 +1,39 @@
+pipeline {
+    agent any
+
+    tools {
+        maven 'Maven 3.9.6'
+        jdk 'JDK 21'
+    }
+
+    environment {
+        ALLURE_RESULTS = 'target/allure-results'
+        ALLURE_REPORT = 'target/allure-report'
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git 'https://your-git-repo-url.git'
+            }
+        }
+
+        stage('Build, Test, and Generate Report') {
+            steps {
+                sh 'mvn clean verify' // this includes test + report generation
+            }
+        }
+
+        stage('Publish Allure Report') {
+            steps {
+                allure includeProperties: false, jdk: '', results: [[path: "${env.ALLURE_RESULTS}"]]
+            }
+        }
+    }
+
+    post {
+        always {
+            archiveArtifacts artifacts: "${env.ALLURE_REPORT}/**", allowEmptyArchive: true
+        }
+    }
+}

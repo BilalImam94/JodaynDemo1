@@ -1,0 +1,1 @@
+[{"uid":"53d08cb8af1c8c9","name":"TC1 - UserRegistration","time":{"start":1746371147884,"stop":1746371153240,"duration":5356},"status":"broken","severity":"critical"},{"uid":"f66f59833ace134b","name":"tearDown","time":{"start":1746273244229,"stop":1746273244230,"duration":1},"status":"broken","severity":"normal"}]
