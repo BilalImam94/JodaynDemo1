@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     tools {
-        maven 'Maven 3.9.6'
-        jdk 'JDK 21'
+        maven 'Maven'
+        jdk 'jdk21'
     }
 
     environment {
@@ -14,7 +14,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://your-git-repo-url.git'
+                git 'https://github.com/BilalImam94/JodaynDemo1'
             }
         }
 

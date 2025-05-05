@@ -6,8 +6,8 @@
             <PatternLayout pattern="[%d{HH:mm:ss}] [%t] %-5level %logger{36} - %msg%n" />
         </Console>
 
-        <!-- File output -->
-        <File name="ErrorFile" fileName="logs/error-log.txt" append="true">
+        <!-- File output for errors (new log file generated each time) -->
+        <File name="ErrorFile" fileName="logs/ErrorLog-%d{yyyy-MM-dd-HH-mm-ss}.log" append="false">
             <PatternLayout>
                 <Pattern>[%d{yyyy-MM-dd HH:mm:ss}] %-5level - %msg%n</Pattern>
             </PatternLayout>

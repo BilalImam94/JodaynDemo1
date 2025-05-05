@@ -39,6 +39,7 @@ public class TestBasic {
                 Util.attachTextLog("Failure Reason", result.getThrowable().toString());
             } catch (Exception e) {
                 System.err.println("❌ Error during attachment: " + e.getMessage());
+                Util.logFailure("Error during attachment: " + e.getMessage());
             }
         }
 
@@ -48,6 +49,7 @@ public class TestBasic {
             }
         } catch (Exception e) {
             System.err.println("❌ Error quitting driver: " + e.getMessage());
+            Util.logFailure("Error quitting driver: " + e.getMessage());
         } finally {
             tdriver.remove();
         }
