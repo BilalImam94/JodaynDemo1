@@ -268,7 +268,7 @@
                         <executions>
                             <execution>
                                 <id>generate-allure-report</id>
-                                <phase>post-integration-test</phase>
+                                <phase>verify</phase> <!-- Use 'verify' phase instead of post-integration-test -->
                                 <goals>
                                     <goal>exec</goal>
                                 </goals>
