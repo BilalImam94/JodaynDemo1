@@ -28,8 +28,6 @@ public class Util {
         }
     }
 
-
-
     public static void attachTextLog(String name, String message) {
         try {
             Allure.addAttachment(name, message);
