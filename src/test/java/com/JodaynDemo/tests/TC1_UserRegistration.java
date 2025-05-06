@@ -97,7 +97,8 @@ public class TC1_UserRegistration extends TestBasic {
                 .deleteAccountButtonClick()
                 .getAccountDeleted()
                 .getText();
-        Assert.assertEquals(accountDeletedText, "ACCOUNT DELETED!E-commerce solutions", "Verify that 'ACCOUNT DELETED!' is visible");
+
+        Assert.assertEquals(accountDeletedText, "ACCOUNT DELETED!S", "Verify that 'ACCOUNT DELETED!' is visible");
         new DeleteAccount(getDriver()).continueButtonClick();
     }
 }

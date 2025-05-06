@@ -8,12 +8,14 @@
     <test name="Test">
         <classes>
             <class name="com.JodaynDemo.tests.TC1_UserRegistration"/>
+            <class name="com.JodaynDemo.tests.TC2_LoginWithCorrectCredentials"/>
+            <class name="com.JodaynDemo.tests.TC3_LoginWithIncorrectCredentials"/>
+            <class name="com.JodaynDemo.tests.TC4_UserLogOut"/>
+            <class name="com.JodaynDemo.tests.TC5_RegistrationWithExistingEmail"/>
+            <class name="com.JodaynDemo.tests.TC6_ContactUs"/>
 <!--            <class name="com.JodaynDemo.tests.TC14_OrderPlaceRegisterDuringCheckout"/>-->
-<!--            <class name="com.JodaynDemo.tests.TC2_LoginWithCorrectCredentials"/>-->
-<!--            <class name="com.JodaynDemo.tests.TC3_LoginWithIncorrectCredentials"/>-->
-<!--            <class name="com.JodaynDemo.tests.TC4_UserLogOut"/>-->
-<!--            <class name="com.JodaynDemo.tests.TC5_RegistrationWithExistingEmail"/>-->
-<!--            <class name="com.JodaynDemo.tests.TC6_ContactUs"/>-->
+
+
         </classes>
     </test>
 </suite>

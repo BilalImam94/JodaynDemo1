@@ -5,27 +5,11 @@
         <Console name="Console" target="SYSTEM_OUT">
             <PatternLayout pattern="[%d{HH:mm:ss}] [%t] %-5level %logger{36} - %msg%n"/>
         </Console>
-
-        <!-- Rolling file appender for errors only -->
-        <RollingFile name="ErrorFile"
-                     fileName="${sys:user.dir}/logs/ErrorLog.log"
-                     filePattern="${sys:user.dir}/logs/ErrorLog-%d{yyyy-MM-dd-HH-mm-ss}.log">
-            <PatternLayout>
-                <Pattern>[%d{yyyy-MM-dd HH:mm:ss}] %-5level - %msg%n</Pattern>
-            </PatternLayout>
-            <Filters>
-                <ThresholdFilter level="ERROR" onMatch="ACCEPT" onMismatch="DENY"/>
-            </Filters>
-            <Policies>
-                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
-            </Policies>
-        </RollingFile>
     </Appenders>
 
     <Loggers>
         <Root level="DEBUG">
             <AppenderRef ref="Console"/>
-            <AppenderRef ref="ErrorFile"/>
         </Root>
     </Loggers>
 </Configuration>

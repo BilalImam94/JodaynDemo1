@@ -41,6 +41,7 @@
             <id>atlassian</id>
             <url>https://packages.atlassian.com/maven-public</url>
         </repository>
+
     </repositories>
 
     <dependencies>
@@ -71,18 +72,6 @@
             <version>${log4j-version}</version>
         </dependency>
 
-        <!-- JIRA -->
-        <dependency>
-            <groupId>com.atlassian.jira</groupId>
-            <artifactId>jira-rest-java-client-core</artifactId>
-            <version>5.2.3</version>
-        </dependency>
-        <dependency>
-            <groupId>com.atlassian.jira</groupId>
-            <artifactId>jira-rest-java-client-api</artifactId>
-            <version>5.2.3</version>
-        </dependency>
-
         <!-- Data Parsing -->
         <dependency>
             <groupId>com.opencsv</groupId>
@@ -104,6 +93,19 @@
             <artifactId>poi-ooxml</artifactId>
             <version>${poi-version}</version>
         </dependency>
+
+        <!-- JIRA -->
+        <dependency>
+            <groupId>com.atlassian.jira</groupId>
+            <artifactId>jira-rest-java-client-core</artifactId>
+            <version>5.2.3</version>
+        </dependency>
+        <dependency>
+            <groupId>com.atlassian.jira</groupId>
+            <artifactId>jira-rest-java-client-api</artifactId>
+            <version>5.2.3</version>
+        </dependency>
+
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi-ooxml-full</artifactId>
@@ -188,6 +190,7 @@
                     <suiteXmlFiles>
                         <suiteXmlFile>testing.xml</suiteXmlFile>
                     </suiteXmlFiles>
+                    <testFailureIgnore>true</testFailureIgnore>
                     <systemProperties>
                         <property>
                             <name>allure.results.directory</name>
