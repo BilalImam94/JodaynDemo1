@@ -1,0 +1,1 @@
+{"f8c75d353ee6163f9f3f409a3d1f8d85":{"statistic":{"failed":1,"broken":0,"skipped":0,"passed":0,"unknown":0,"total":1},"items":[{"uid":"487e1903940ef31e","status":"failed","statusDetails":"Verify that products are visible in cart expected [Sleeves Top and Short - Blue & Pink] but found [Blue Top]","time":{"start":1746595642163,"stop":1746595658956,"duration":16793}}]}}

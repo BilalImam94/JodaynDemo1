@@ -51,6 +51,6 @@ public class TC16_OrderPlaceLoginBeforeCheckout extends TestBasic {
         String username = new LoggedIn(getDriver())
                 .getUsername()
                 .getText();
-        Assert.assertEquals(username, JSONReader.existingUser("name"), "Verify 'Logged in as username' at top");
+        Assert.assertEquals(username, JSONReader.existingUser("Logged in as "+username), "Verify 'Logged in as username' at top");
     }
 }

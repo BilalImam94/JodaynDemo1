@@ -2,19 +2,36 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Suite" parallel="methods" thread-count="1">
     <listeners>
-        <listener class-name="io.qameta.allure.testng.AllureTestNg"/>
+<!--        <listener class-name="io.qameta.allure.testng.AllureTestNg"/>-->
         <listener class-name="com.JodaynDemo.listeners.JiraFailureListener"/>
     </listeners>
     <test name="Test">
         <classes>
-            <class name="com.JodaynDemo.tests.TC1_UserRegistration"/>
-            <class name="com.JodaynDemo.tests.TC2_LoginWithCorrectCredentials"/>
-            <class name="com.JodaynDemo.tests.TC3_LoginWithIncorrectCredentials"/>
-            <class name="com.JodaynDemo.tests.TC4_UserLogOut"/>
-            <class name="com.JodaynDemo.tests.TC5_RegistrationWithExistingEmail"/>
-            <class name="com.JodaynDemo.tests.TC6_ContactUs"/>
+<!--            <class name="com.JodaynDemo.tests.TC1_UserRegistration"/>-->
+<!--            <class name="com.JodaynDemo.tests.TC2_LoginWithCorrectCredentials"/>-->
+<!--            <class name="com.JodaynDemo.tests.TC3_LoginWithIncorrectCredentials"/>-->
+<!--            <class name="com.JodaynDemo.tests.TC4_UserLogOut"/>-->
+<!--            <class name="com.JodaynDemo.tests.TC5_RegistrationWithExistingEmail"/>-->
+<!--            <class name="com.JodaynDemo.tests.TC6_ContactUs"/>-->
+<!--            <class name="com.JodaynDemo.tests.TC7_TestCaseValidation"/>-->
+<!--            <class name="com.JodaynDemo.tests.TC8_ProductAndProductDetailsValidation"/>-->
+<!--            <class name="com.JodaynDemo.tests.TC9_ProductSearch"/>-->
+<!--            <class name="com.JodaynDemo.tests.TC10_SubscriptionVerificationHome"/>-->
+<!--            <class name="com.JodaynDemo.tests.TC11_SubscriptionVerificationCart"/>-->
+<!--            <class name="com.JodaynDemo.tests.TC12_CartAddProducts"/>-->
+<!--            <class name="com.JodaynDemo.tests.TC13_ProductQuantityValidationCart"/>-->
 <!--            <class name="com.JodaynDemo.tests.TC14_OrderPlaceRegisterDuringCheckout"/>-->
-
+<!--            <class name="com.JodaynDemo.tests.TC15_OrderPlaceRegisterBeforeCheckout"/>-->
+<!--            <class name="com.JodaynDemo.tests.TC16_OrderPlaceLoginBeforeCheckout"/>-->
+<!--            <class name="com.JodaynDemo.tests.TC17_ProductRemovalCart"/>-->
+<!--            <class name="com.JodaynDemo.tests.TC18_ProductViewCategory"/>-->
+<!--            <class name="com.JodaynDemo.tests.TC19_ProductBrandCartandView"/>-->
+<!--            <class name="com.JodaynDemo.tests.TC20_ProductSearchAndCartValidationAfterLogin"/>-->
+<!--            <class name="com.JodaynDemo.tests.TC21_ProductReviewAdd"/>-->
+<!--            <class name="com.JodaynDemo.tests.TC22_AddtoCartRecommendedItems"/>-->
+<!--            <class name="com.JodaynDemo.tests.TC23_CheckoutValidateAddressDetails"/>-->
+<!--            <class name="com.JodaynDemo.tests.TC24_InvoiceDownloadAfterPurchase"/>-->
+            <class name="com.JodaynDemo.tests.TC25_ScrollUpandScrollDown"/>
 
         </classes>
     </test>

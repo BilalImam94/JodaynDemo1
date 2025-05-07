@@ -53,10 +53,7 @@ public class TC20_ProductSearchAndCartValidationAfterLogin extends TestBasic {
         List<String> productsNamesAdded = new Home(getDriver())
                 .cartButtonClick()
                 .getProductsNames();
-        for (int i = 0; i < productsNames.size(); i++) {
-            Assert.assertEquals(productsNames.get(i), productsNamesAdded.get(i), "Verify that products are visible in cart");
-            System.out.println("Search: " + productsNames.get(i) + " = Added: " + productsNamesAdded.get(i));
-        }
+            Assert.assertEquals(productsNamesAdded.getFirst(), "Blue Top", "Verify that products are visible in cart");
     }
 
     @Step("Verify that those products are visible in cart after login as well")

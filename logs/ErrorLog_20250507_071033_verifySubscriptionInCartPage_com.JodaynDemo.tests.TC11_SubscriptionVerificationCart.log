@@ -1,0 +1,30 @@
+[2025-05-07 07:10:33] ERROR - Test Failed: verifySubscriptionInCartPage - com.JodaynDemo.tests.TC11_SubscriptionVerificationCart
+[2025-05-07 07:10:33] ERROR - Error: org.openqa.selenium.NoSuchElementException: Unable to find element with locator By.cssSelector: div.item.active img[alt='demo website for practice']
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.31.0', revision: '1ef9f18787*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.6'
+Driver info: driver.version: RemoteWebDriver
+[2025-05-07 07:10:33] ERROR - org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:168)
+[2025-05-07 07:10:33] ERROR - org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+[2025-05-07 07:10:33] ERROR - org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:368)
+[2025-05-07 07:10:33] ERROR - org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:362)
+[2025-05-07 07:10:33] ERROR - com.JodaynDemo.pages.Home.girlImgResponsive(Home.java:18)
+[2025-05-07 07:10:33] ERROR - com.JodaynDemo.pages.Home.homePageIsVisible(Home.java:102)
+[2025-05-07 07:10:33] ERROR - com.JodaynDemo.tests.TC1_UserRegistration.verifyThatHomePageIsVisibleSuccessfully(TC1_UserRegistration.java:53)
+[2025-05-07 07:10:33] ERROR - com.JodaynDemo.tests.TC11_SubscriptionVerificationCart.verifySubscriptionInCartPage(TC11_SubscriptionVerificationCart.java:26)
+[2025-05-07 07:10:33] ERROR - java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+[2025-05-07 07:10:33] ERROR - java.base/java.lang.reflect.Method.invoke(Method.java:580)
+[2025-05-07 07:10:33] ERROR - org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+[2025-05-07 07:10:33] ERROR - org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+[2025-05-07 07:10:33] ERROR - org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+[2025-05-07 07:10:33] ERROR - org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+[2025-05-07 07:10:33] ERROR - org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+[2025-05-07 07:10:33] ERROR - org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+[2025-05-07 07:10:33] ERROR - org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+[2025-05-07 07:10:33] ERROR - org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+[2025-05-07 07:10:33] ERROR - java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+[2025-05-07 07:10:33] ERROR - java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+[2025-05-07 07:10:33] ERROR - org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+[2025-05-07 07:10:33] ERROR - java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+[2025-05-07 07:10:33] ERROR - java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+[2025-05-07 07:10:33] ERROR - java.base/java.lang.Thread.run(Thread.java:1583)

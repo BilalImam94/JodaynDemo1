@@ -12,6 +12,10 @@
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <maven.compiler.release>21</maven.compiler.release>
+        <maven.build.timestamp.format>yyyyMMdd_HHmmss</maven.build.timestamp.format>
+        <report.timestamp>${maven.build.timestamp}</report.timestamp>
+
+
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <!-- Dependency Versions -->
@@ -218,58 +222,51 @@
             <build>
                 <plugins>
                     <plugin>
-                        <groupId>org.codehaus.mojo</groupId>
-                        <artifactId>exec-maven-plugin</artifactId>
-                        <version>3.1.0</version>
-                        <executions>
-                            <execution>
-                                <goals>
-                                    <goal>java</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                        <configuration>
-                            <mainClass>com.jodayndemo.logging.LoggingTest</mainClass>
-                        </configuration>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.codehaus.mojo</groupId>
-                        <artifactId>exec-maven-plugin</artifactId>
-                        <version>3.1.0</version>
-                        <executions>
-                            <execution>
-                                <id>generate-allure-report</id>
-                                <phase>post-integration-test</phase>
-                                <goals>
-                                    <goal>exec</goal>
-                                </goals>
-                                <configuration>
-                                    <executable>allure</executable>
-                                    <arguments>
-                                        <argument>generate</argument>
-                                        <argument>${project.build.directory}/allure-results</argument>
-                                        <argument>-o</argument>
-                                        <argument>${project.build.directory}/allure-report</argument>
-                                        <argument>--clean</argument>
-                                    </arguments>
-                                </configuration>
-                            </execution>
-                            <execution>
-                                <id>open-allure-report</id>
-                                <phase>post-integration-test</phase>
-                                <goals>
-                                    <goal>exec</goal>
-                                </goals>
-                                <configuration>
-                                    <executable>allure</executable>
-                                    <arguments>
-                                        <argument>open</argument>
-                                        <argument>${project.build.directory}/allure-report</argument>
-                                    </arguments>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>exec-maven-plugin</artifactId>
+                    <version>3.1.0</version>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>java</goal>
+                            </goals>
+                            <configuration>
+                                <mainClass>com.jodayndemo.logging.LoggingTest</mainClass>
+                            </configuration>
+                        </execution>
+                        <execution>
+                            <id>generate-allure-report</id>
+                            <phase>post-integration-test</phase>
+                            <goals>
+                                <goal>exec</goal>
+                            </goals>
+                            <configuration>
+                                <executable>allure</executable>
+                                <arguments>
+                                    <argument>generate</argument>
+                                    <argument>${project.build.directory}/allure-results</argument>
+                                    <argument>-o</argument>
+                                    <argument>${project.basedir}/reports/allure/${report.timestamp}</argument>
+                                    <argument>--clean</argument>
+                                </arguments>
+                            </configuration>
+                        </execution>
+                        <execution>
+                            <id>open-allure-report</id>
+                            <phase>post-integration-test</phase>
+                            <goals>
+                                <goal>exec</goal>
+                            </goals>
+                            <configuration>
+                                <executable>allure</executable>
+                                <arguments>
+                                    <argument>open</argument>
+                                    <argument>${project.basedir}/reports/allure/${report.timestamp}</argument>
+                                </arguments>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
                 </plugins>
             </build>
         </profile>

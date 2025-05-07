@@ -56,12 +56,10 @@ public class ContactUs {
     }
 
     public ContactUs fillForm() {
-        nameInput().sendKeys("Robert");
-        emailInput().sendKeys("robert@test.pl");
+        nameInput().sendKeys("Bilal");
+        emailInput().sendKeys("Bilal@testtt.jdd");
         subjectInput().sendKeys("Test subject");
-        messageInput().sendKeys("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc lobortis eros eget cursus placerat. " +
-                "Pellentesque id porttitor est. Morbi aliquet massa sit amet finibus fermentum. Pellentesque eu ante a nunc pulvinar blandit a a orci." +
-                " Mauris massa tellus, posuere vitae ante vel, feugiat sodales ante. Suspendisse commodo diam venenatis scelerisque ornare.");
+        messageInput().sendKeys("FIll Form Test Sample");
         uploadFileInput().sendKeys(System.getProperty("user.dir") + "\\src\\test\\resources\\sample.txt");
         return this;
     }

@@ -20,7 +20,6 @@ public class JiraRestClient {
             String auth = email + ":" + apiToken;
             String encodedAuth = Base64.getEncoder().encodeToString(auth.getBytes());
 
-            // Convert Throwable stack trace to string
             StringWriter sw = new StringWriter();
             PrintWriter pw = new PrintWriter(sw);
             error.printStackTrace(pw);
@@ -42,13 +41,13 @@ public class JiraRestClient {
             System.out.println("Response: " + response.body());
 
             if (status == 201) {
-                System.out.println("✅ JIRA ticket created.");
+                System.out.println("JIRA ticket created.");
             } else {
-                System.err.println("❌ Failed to create ticket. Status: " + status);
+                System.err.println("Failed to create ticket. Status: " + status);
             }
 
         } catch (Exception e) {
-            System.err.println("❌ Error creating JIRA issue: " + e.getMessage());
+            System.err.println("Error creating JIRA issue: " + e.getMessage());
             e.printStackTrace();
         }
     }

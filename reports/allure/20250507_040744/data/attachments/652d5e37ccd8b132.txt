@@ -1,0 +1,1 @@
+java.lang.AssertionError: Verify that category page is displayed and confirm text 'WOMEN - DRESS PRODUCTS' expected [WOMEN - DRESS PRODUCTS] but found [WOMEN -  DRESS PRODUCTS]

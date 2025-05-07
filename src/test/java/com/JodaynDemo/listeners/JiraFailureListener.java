@@ -7,29 +7,37 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.core.LoggerContext;
 import org.apache.logging.log4j.core.config.Configuration;
 import org.apache.logging.log4j.core.appender.FileAppender;
-import org.apache.logging.log4j.core.config.LoggerConfig;
 import org.apache.logging.log4j.core.layout.PatternLayout;
-import org.apache.logging.log4j.Level;
-import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.core.Logger;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.io.File;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class JiraFailureListener implements ITestListener {
 
     @Override
     public void onTestFailure(ITestResult result) {
+
         Throwable error = result.getThrowable();
         if (error == null) return;
 
         String testName = result.getMethod().getMethodName();
-        String className = result.getTestClass().getName();
         String testCaseName = result.getInstanceName();
         String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-        String loggerName = "FailureLog-" + timestamp;
-        String filename = "logs/ErrorLog_" + timestamp + "_" + testCaseName + "_" + testName + ".log";
+        String dynamicFilename = "logs/ErrorLog_" + timestamp + "_" + testName + "_" + testCaseName + ".log";
+        String staticFilename = "logs/Error.log";  // Static log file that accumulates all errors
 
         try {
+
+            File logDir = new File("logs");
+            if (!logDir.exists()) {
+                logDir.mkdirs();
+            }
+
             LoggerContext context = (LoggerContext) LogManager.getContext(false);
             Configuration config = context.getConfiguration();
 
@@ -38,41 +46,41 @@ public class JiraFailureListener implements ITestListener {
                     .withConfiguration(config)
                     .build();
 
-            FileAppender appender = FileAppender.newBuilder()
-                    .setName(loggerName)
-                    .withFileName(filename)
+            FileAppender dynamicAppender = FileAppender.newBuilder()
+                    .withFileName(dynamicFilename)
+                    .withName("TestFailureAppender_" + timestamp)
                     .withImmediateFlush(true)
                     .withAppend(false)
-                    .setConfiguration(config)
                     .withLayout(layout)
+                    .setConfiguration(config)
                     .build();
 
-            appender.start();
-            config.addAppender(appender);
+            dynamicAppender.start();
+            Logger dynamicLogger = (Logger) LogManager.getLogger("TestFailureLogger_" + timestamp);
+            dynamicLogger.addAppender(dynamicAppender);
 
-            // ✅ Create a dedicated logger (no root inheritance)
-            LoggerConfig loggerConfig = LoggerConfig.createLogger(false, Level.ERROR, loggerName,
-                    "true", null, null, config, null);
-            loggerConfig.addAppender(appender, Level.ERROR, null);
-            config.addLogger(loggerName, loggerConfig);
+            // Log the failure details to the dynamic log
+            dynamicLogger.error("Test Failed: {} - {}", testName, result.getInstanceName());
+            dynamicLogger.error("Error: {}", error.toString());
+            for (StackTraceElement element : error.getStackTrace()) {
+                dynamicLogger.error(element.toString());
+            }
+
+            dynamicAppender.stop();
             context.updateLoggers();
+            logToStaticFile(staticFilename, error, testName, result);
 
-            Logger dynamicLogger = LogManager.getLogger(loggerName);
-            String summary = "Test failed: " + testName + " | Class: " + className + " | TestCaseName: " + testCaseName;
-            dynamicLogger.error(summary, error);
+            System.out.println("Test failure logged to dynamic file: " + dynamicFilename);
+            System.out.println("Test failure logged to static file: " + staticFilename);
 
-            System.out.println("Saved failure log to: " + filename);
         } catch (Exception e) {
-            System.err.println("Failed to create dynamic log file for test failure: " + e.getMessage());
+            System.err.println("Error while logging failure: " + e.getMessage());
         }
 
-        // Prepare Jira ticket
         String errorType = error.getClass().getName();
         String errorMessage = error.getMessage();
-        String summary = "Test failed: " + result.getMethod().getMethodName() + " | Class: " + result.getInstanceName();
+        String summary = "Test failed: " + testName + " " + testCaseName;
         String descriptionSummary = getDescription(error, errorMessage, errorType);
-
-        System.out.println("Preparing to log JIRA issue with description:\n" + descriptionSummary);
 
         JiraRestClient.createIssue(
                 "bimam9@gmail.com",
@@ -100,5 +108,23 @@ public class JiraFailureListener implements ITestListener {
                 + "Error Message: " + message + "\n"
                 + expected + "\n"
                 + actual;
+    }
+
+    //This method logs to the static Error.log file
+    private void logToStaticFile(String filename, Throwable error, String testName, ITestResult result) {
+        String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename, true))) {
+            writer.write("Test Failed: " + testName + " - " + result.getInstanceName());
+            writer.newLine();
+            writer.write("Error: " + error.toString());
+            writer.newLine();
+            for (StackTraceElement element : error.getStackTrace()) {
+                writer.write(element.toString());
+                writer.newLine();
+            }
+            writer.flush();
+        } catch (IOException e) {
+            System.err.println("Error while writing to static log file: " + e.getMessage());
+        }
     }
 }

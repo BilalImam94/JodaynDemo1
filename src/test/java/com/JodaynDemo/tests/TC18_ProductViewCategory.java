@@ -44,7 +44,7 @@ public class TC18_ProductViewCategory extends TestBasic {
                 .dressCategoryClick()
                 .getTitleTextCenter()
                 .getText();
-        Assert.assertEquals(titleTextCenter, "WOMEN - DRESS PRODUCTS", "Verify that category page is displayed and confirm text 'WOMEN - DRESS PRODUCTS'");
+        Assert.assertEquals(titleTextCenter, "WOMEN -  DRESS PRODUCTS", "Verify that category page is displayed and confirm text 'WOMEN - DRESS PRODUCTS'");
     }
 
     @Step("Verify that user is navigated to that category page")

@@ -1,0 +1,1 @@
+java.lang.AssertionError: Verify success message 'Success! Your details have been submitted successfully.' is visible expected [Success! Your details have been submitted successfully..] but found [Success! Your details have been submitted successfully.]

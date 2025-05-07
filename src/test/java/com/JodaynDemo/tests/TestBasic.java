@@ -32,10 +32,10 @@ public class TestBasic {
 
         if (result.getStatus() == ITestResult.FAILURE && driver != null) {
             try {
-                Util.attachScreenshot(driver); // Correct signature
+                Util.attachScreenshot(driver);
                 Util.attachTextLog("Failure Reason", result.getThrowable().toString());
             } catch (Exception e) {
-                System.err.println("❌ Error during attachment: " + e.getMessage());
+                System.err.println("Error during attachment: " + e.getMessage());
                 Util.logFailure("Error during attachment: " + e.getMessage());
             }
         }
@@ -45,7 +45,7 @@ public class TestBasic {
                 driver.quit();
             }
         } catch (Exception e) {
-            System.err.println("❌ Error quitting driver: " + e.getMessage());
+            System.err.println("Error quitting driver: " + e.getMessage());
             Util.logFailure("Error quitting driver: " + e.getMessage());
         } finally {
             tdriver.remove();

@@ -1,0 +1,42 @@
+[2025-05-07 07:16:49] ERROR - Test Failed: downloadInvoiceAfterPurchaseOrder - com.JodaynDemo.tests.TC24_InvoiceDownloadAfterPurchase
+[2025-05-07 07:16:49] ERROR - Error: org.openqa.selenium.NoSuchSessionException: invalid session id: session deleted as the browser has closed the connection
+from disconnected: unable to send message to renderer
+  (Session info: chrome=135.0.7049.115)
+Build info: version: '4.31.0', revision: '1ef9f18787*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.6'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [5996e624e5441ec228245f2e167987b9, clickElement {id=f.0EC0FC6CA5B16AA16AC0B5CBFA71E0A8.d.A3E4A4A33DB4D68B7081385BB0F2C184.e.39}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 135.0.7049.115, chrome: {chromedriverVersion: 135.0.7049.114 (63fd8a7d9d0..., userDataDir: C:\Users\hydroweb\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:53977}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:53977/devtoo..., se:cdpVersion: 135.0.7049.115, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (5996e624e5441ec228245f2e167987b9)] -> css selector: a[href='/view_cart'] u]
+Session ID: 5996e624e5441ec228245f2e167987b9
+[2025-05-07 07:16:49] ERROR - java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+[2025-05-07 07:16:49] ERROR - java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+[2025-05-07 07:16:49] ERROR - java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+[2025-05-07 07:16:49] ERROR - org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+[2025-05-07 07:16:49] ERROR - org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+[2025-05-07 07:16:49] ERROR - org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+[2025-05-07 07:16:49] ERROR - org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+[2025-05-07 07:16:49] ERROR - org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+[2025-05-07 07:16:49] ERROR - org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+[2025-05-07 07:16:49] ERROR - org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
+[2025-05-07 07:16:49] ERROR - org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
+[2025-05-07 07:16:49] ERROR - org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
+[2025-05-07 07:16:49] ERROR - com.JodaynDemo.pages.Products.addProductsToCart(Products.java:111)
+[2025-05-07 07:16:49] ERROR - com.JodaynDemo.tests.TC14_OrderPlaceRegisterDuringCheckout.verifyThatCartPageIsDisplayed(TC14_OrderPlaceRegisterDuringCheckout.java:58)
+[2025-05-07 07:16:49] ERROR - com.JodaynDemo.tests.TC24_InvoiceDownloadAfterPurchase.downloadInvoiceAfterPurchaseOrder(TC24_InvoiceDownloadAfterPurchase.java:48)
+[2025-05-07 07:16:49] ERROR - java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+[2025-05-07 07:16:49] ERROR - java.base/java.lang.reflect.Method.invoke(Method.java:580)
+[2025-05-07 07:16:49] ERROR - org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+[2025-05-07 07:16:49] ERROR - org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+[2025-05-07 07:16:49] ERROR - org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+[2025-05-07 07:16:49] ERROR - org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+[2025-05-07 07:16:49] ERROR - org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+[2025-05-07 07:16:49] ERROR - org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+[2025-05-07 07:16:49] ERROR - org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+[2025-05-07 07:16:49] ERROR - org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+[2025-05-07 07:16:49] ERROR - java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+[2025-05-07 07:16:49] ERROR - java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+[2025-05-07 07:16:49] ERROR - org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+[2025-05-07 07:16:49] ERROR - java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+[2025-05-07 07:16:49] ERROR - java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+[2025-05-07 07:16:49] ERROR - java.base/java.lang.Thread.run(Thread.java:1583)

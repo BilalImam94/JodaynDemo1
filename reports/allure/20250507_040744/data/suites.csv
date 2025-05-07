@@ -1,0 +1,206 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"1. Launch browser
+2. Navigate to url 'http://automationexercise.com'
+3. Verify that home page is visible successfully
+4. Click on 'Products' button
+5. Verify user is navigated to ALL PRODUCTS page successfully
+6. Enter product name in search input and click search button
+7. Verify 'SEARCHED PRODUCTS' is visible
+8. Verify all the products related to search are visible","4492","Test Case 9: Search Product","Suite","Wed May 07 07:08:34 AST 2025","passed","Wed May 07 07:08:38 AST 2025","com.JodaynDemo.tests.TC9_ProductSearch","Test","com.JodaynDemo.tests.TC9_ProductSearch","searchProduct"
+"1. Launch browser
+2. Navigate to url 'http://automationexercise.com'
+3. Scroll to bottom of page
+4. Verify 'RECOMMENDED ITEMS' are visible
+5. Click on 'Add To Cart' on Recommended product
+6. Click on 'View Cart' button
+7. Verify that product is displayed in cart page","9872","Test Case 22: Add to cart from Recommended items","Suite","Wed May 07 07:13:58 AST 2025","passed","Wed May 07 07:14:07 AST 2025","com.JodaynDemo.tests.TC22_AddtoCartRecommendedItems","Test","com.JodaynDemo.tests.TC22_AddtoCartRecommendedItems","AddToCartFromRecommendedItems"
+"1. Launch browser
+2. Navigate to url 'http://automationexercise.com'
+3. Verify that home page is visible successfully
+4. Click on 'Test Cases' button
+5. Verify user is navigated to test cases page successfully","1003","Test Case 7: Verify Test Cases Page","Suite","Wed May 07 07:08:13 AST 2025","passed","Wed May 07 07:08:14 AST 2025","com.JodaynDemo.tests.TC7_TestCaseValidation","Test","com.JodaynDemo.tests.TC7_TestCaseValidation","verifyTestCasesPage"
+"1. Launch browser
+2. Navigate to url 'http://automationexercise.com'
+3. Verify that home page is visible successfully
+4. Add products to cart
+5. Click 'Cart' button
+6. Verify that cart page is displayed
+7. Click Proceed To Checkout
+8. Click 'Register / Login' button
+9. Fill all details in Signup and create account
+10. Verify 'ACCOUNT CREATED!' and click 'Continue' button
+11. Verify ' Logged in as username' at top
+12. Click 'Cart' button
+13. Click 'Proceed To Checkout' button
+14. Verify Address Details and Review Your Order
+15. Enter description in comment text area and click 'Place Order'
+16. Enter payment details: Name on Card, Card Number, CVC, Expiration date
+17. Click 'Pay and Confirm Order' button
+18. Verify success message 'Congratulations! Your order has been confirmed!'
+19. Click 'Download Invoice' button and verify invoice is downloaded successfully
+20. Click 'Continue' button
+21. Click 'Delete Account' button
+22. Verify 'ACCOUNT DELETED!' and click 'Continue' button","129535","Test Case 24: Download Invoice after purchase order","Suite","Wed May 07 07:14:41 AST 2025","broken","Wed May 07 07:16:50 AST 2025","com.JodaynDemo.tests.TC24_InvoiceDownloadAfterPurchase","Test","com.JodaynDemo.tests.TC24_InvoiceDownloadAfterPurchase","downloadInvoiceAfterPurchaseOrder"
+"1. Launch browser
+2. Navigate to url 'http://automationexercise.com'
+3. Verify that categories are visible on left side bar
+4. Click on 'Women' category
+5. Click on any category link under 'Women' category, for example: Dress
+6. Verify that category page is displayed and confirm text 'WOMEN - DRESS PRODUCTS'
+7. On left side bar, click on any sub-category link of 'Men' category
+8. Verify that user is navigated to that category page","2744","Test Case 18: View Category Products","Suite","Wed May 07 07:12:52 AST 2025","failed","Wed May 07 07:12:55 AST 2025","com.JodaynDemo.tests.TC18_ProductViewCategory","Test","com.JodaynDemo.tests.TC18_ProductViewCategory","viewCategoryProducts"
+"1. Launch browser
+2. Navigate to url 'http://automationexercise.com'
+3. Verify that home page is visible successfully
+4. Scroll down to footer
+5. Verify text 'SUBSCRIPTION'
+6. Enter email address in input and click arrow button
+7. Verify success message 'You have been successfully subscribed!' is visible","624","Test Case 10: Verify Subscription in home page","Suite","Wed May 07 07:08:46 AST 2025","passed","Wed May 07 07:08:46 AST 2025","com.JodaynDemo.tests.TC10_SubscriptionVerificationHome","Test","com.JodaynDemo.tests.TC10_SubscriptionVerificationHome","verifySubscriptionInHomePage"
+"1. Launch browser
+2. Navigate to url 'http://automationexercise.com'
+3. Click on 'Products' button
+4. Verify that Brands are visible on left side bar
+5. Click on any brand name
+6. Verify that user is navigated to brand page and brand products are displayed
+7. On left side bar, click on any other brand link
+8. Verify that user is navigated to that brand page and can see products","4803","Test Case 19: View & Cart Brand Products","Suite","Wed May 07 07:13:03 AST 2025","failed","Wed May 07 07:13:08 AST 2025","com.JodaynDemo.tests.TC19_ProductBrandCartandView","Test","com.JodaynDemo.tests.TC19_ProductBrandCartandView","viewCartBrandProducts"
+"1. Launch browser
+2. Navigate to url 'http://automationexercise.com'
+3. Click on 'Products' button
+4. Verify user is navigated to ALL PRODUCTS page successfully
+5. Click on 'View Product' button
+6. Verify 'Write Your Review' is visible
+7. Enter name, email and review
+8. Click 'Submit' button
+9. Verify success message 'Thank you for your review.'","4304","Test Case 21: Add review on product","Suite","Wed May 07 07:13:44 AST 2025","passed","Wed May 07 07:13:48 AST 2025","com.JodaynDemo.tests.TC21_ProductReviewAdd","Test","com.JodaynDemo.tests.TC21_ProductReviewAdd","addReviewOnProduct"
+"1. Launch browser
+2. Navigate to url 'http://automationexercise.com'
+3. Verify that home page is visible successfully
+4. Click on 'Products' button
+5. Verify user is navigated to ALL PRODUCTS page successfully
+6. The products list is visible
+7. Click on 'View Product' of first product
+8. User is landed to product detail page
+9. Verify that detail detail is visible: product name, category, price, availability, condition, brand","4302","Test Case 8: Verify All Products and product detail page","Suite","Wed May 07 07:08:23 AST 2025","passed","Wed May 07 07:08:27 AST 2025","com.JodaynDemo.tests.TC8_ProductAndProductDetailsValidation","Test","com.JodaynDemo.tests.TC8_ProductAndProductDetailsValidation","verifyAllProductsAndProductDetailPage"
+"1. Launch browser
+2. Navigate to url 'http://automationexercise.com'
+3. Verify that home page is visible successfully
+4. Click 'View Product' for any product on home page
+5. Verify product detail is opened
+6. Increase quantity to 4
+7. Click 'Add to cart' button
+8. Click 'View Cart' button
+9. Verify that product is displayed in cart page with exact quantity","4077","Test Case 13: Verify Product quantity in Cart","Suite","Wed May 07 07:10:54 AST 2025","passed","Wed May 07 07:10:58 AST 2025","com.JodaynDemo.tests.TC13_ProductQuantityValidationCart","Test","com.JodaynDemo.tests.TC13_ProductQuantityValidationCart","verifyProductQuantityInCart"
+"1. Launch browser
+2. Navigate to url 'http://automationexercise.com'
+3. Verify that home page is visible successfully
+4. Click 'Products' button
+5. Hover over first product and click 'Add to cart'
+6. Click 'Continue Shopping' button
+7. Hover over second product and click 'Add to cart'
+8. Click 'View Cart' button
+9. Verify both products are added to Cart
+10. Verify their prices, quantity and total price","6435","Test Case 12: Add Products in Cart","Suite","Wed May 07 07:10:42 AST 2025","passed","Wed May 07 07:10:48 AST 2025","com.JodaynDemo.tests.TC12_CartAddProducts","Test","com.JodaynDemo.tests.TC12_CartAddProducts","addProductsInCart"
+"1. Launch browser
+2. Navigate to url 'http://automationexercise.com'
+3. Verify that home page is visible successfully
+4. Add products to cart
+5. Click 'Cart' button
+6. Verify that cart page is displayed
+7. Click Proceed To Checkout
+8. Click 'Register / Login' button
+9. Fill all details in Signup and create account
+10. Verify 'ACCOUNT CREATED!' and click 'Continue' button
+11. Verify ' Logged in as username' at top
+12. Click 'Cart' button
+13. Click 'Proceed To Checkout' button
+14. Verify Address Details and Review Your Order
+15. Enter description in comment text area and click 'Place Order'
+16. Enter payment details: Name on Card, Card Number, CVC, Expiration date
+17. Click 'Pay and Confirm Order' button
+18. Verify success message 'Congratulations! Your order has been confirmed!'
+19. Click 'Delete Account' button
+20. Verify 'ACCOUNT DELETED!' and click 'Continue' button","24996","Test Case 14: Place Order: Register while Checkout","Suite","Wed May 07 07:11:02 AST 2025","failed","Wed May 07 07:11:27 AST 2025","com.JodaynDemo.tests.TC14_OrderPlaceRegisterDuringCheckout","Test","com.JodaynDemo.tests.TC14_OrderPlaceRegisterDuringCheckout","placeOrderRegisterWhileCheckout"
+"1. Launch browser
+2. Navigate to url 'http://automationexercise.com'
+3. Verify that home page is visible successfully
+4. Click 'Cart' button and scroll down to footer
+5. Verify text 'SUBSCRIPTION'
+6. Enter email address in input and click arrow button
+7. Verify success message 'You have been successfully subscribed!' is visible","105671","Test Case 11: Verify Subscription in Cart page","Suite","Wed May 07 07:08:51 AST 2025","broken","Wed May 07 07:10:36 AST 2025","com.JodaynDemo.tests.TC11_SubscriptionVerificationCart","Test","com.JodaynDemo.tests.TC11_SubscriptionVerificationCart","verifySubscriptionInCartPage"
+"1. Launch browser
+2. Navigate to url 'http://automationexercise.com'
+3. Click on 'Products' button
+4. Verify user is navigated to ALL PRODUCTS page successfully
+5. Enter product name in search input and click search button
+6. Verify 'SEARCHED PRODUCTS' is visible
+7. Verify all the products related to search are visible
+8. Add those products to cart
+9. Click 'Cart' button and verify that products are visible in cart
+10. Click 'Signup / Login' button and submit login details
+11. Again, go to Cart page
+12. Verify that those products are visible in cart after login as well
+13. Remove all products that have been added
+14. Verify 'Cart is empty! Click here to buy products.' is visible","17330","Test Case 20: Search Products and Verify Cart After Login","Suite","Wed May 07 07:13:18 AST 2025","failed","Wed May 07 07:13:35 AST 2025","com.JodaynDemo.tests.TC20_ProductSearchAndCartValidationAfterLogin","Test","com.JodaynDemo.tests.TC20_ProductSearchAndCartValidationAfterLogin","searchProductsAndVerifyCartAfterLogin"
+"1. Launch browser
+2. Navigate to url 'http://automationexercise.com'
+3. Verify that home page is visible successfully
+4. Add products to cart
+5. Click 'Cart' button
+6. Verify that cart page is displayed
+7. Click 'X' button corresponding to particular product
+8. Verify that product is removed from the cart","5452","Test Case 17: Remove Products From Cart","Suite","Wed May 07 07:12:39 AST 2025","passed","Wed May 07 07:12:45 AST 2025","com.JodaynDemo.tests.TC17_ProductRemovalCart","Test","com.JodaynDemo.tests.TC17_ProductRemovalCart","removeProductsFromCart"
+"1. Launch browser
+2. Navigate to url 'http://automationexercise.com'
+3. Verify that home page is visible successfully
+4. Click 'Signup / Login' button
+5. Fill all details in Signup and create account
+6. Verify 'ACCOUNT CREATED!' and click 'Continue' button
+7. Verify ' Logged in as username' at top
+8. Add products to cart
+9. Click 'Cart' button
+10. Verify that cart page is displayed
+11. Click Proceed To Checkout
+12. Verify that the delivery address and the billing address is same address filled at the time registration of account
+13. Click 'Delete Account' button
+14. Verify 'ACCOUNT DELETED!' and click 'Continue' button","16015","Test Case 23: Verify address details in checkout page","Suite","Wed May 07 07:14:16 AST 2025","failed","Wed May 07 07:14:32 AST 2025","com.JodaynDemo.tests.TC23_CheckoutValidateAddressDetails","Test","com.JodaynDemo.tests.TC23_CheckoutValidateAddressDetails","verifyAddressDetailsInCheckoutPage"
+"1. Launch browser
+2. Navigate to url 'http://automationexercise.com'
+3. Verify that home page is visible successfully
+4. Click 'Signup / Login' button
+5. Fill email, password and click 'Login' button
+6. Verify 'Logged in as username' at top
+7. Add products to cart
+8. Click 'Cart' button
+9. Verify that cart page is displayed
+10. Click Proceed To Checkout
+11. Verify Address Details and Review Your Order
+12. Enter description in comment text area and click 'Place Order'
+13. Enter payment details: Name on Card, Card Number, CVC, Expiration date
+14. Click 'Pay and Confirm Order' button
+15. Verify success message 'Congratulations! Your order has been confirmed!'","5554","Test Case 16: Place Order: Login before Checkout","Suite","Wed May 07 07:12:26 AST 2025","failed","Wed May 07 07:12:32 AST 2025","com.JodaynDemo.tests.TC16_OrderPlaceLoginBeforeCheckout","Test","com.JodaynDemo.tests.TC16_OrderPlaceLoginBeforeCheckout","placeOrderLoginBeforeCheckout"
+"1. Launch browser
+2. Navigate to url 'http://automationexercise.com'
+3. Verify that home page is visible successfully
+4. Scroll down page to bottom
+5. Verify 'SUBSCRIPTION' is visible
+6. Click on arrow at bottom right side to move upward
+7. Verify that page is scrolled up and 'Full-Fledged practice website for Automation Engineers' text is visible on screen","7963","Test Case 25: Verify Scroll Up using 'Arrow' button and Scroll Down functionality","Suite","Wed May 07 07:16:53 AST 2025","broken","Wed May 07 07:17:01 AST 2025","com.JodaynDemo.tests.TC25_ScrollUpandScrollDown","Test","com.JodaynDemo.tests.TC25_ScrollUpandScrollDown","verifyScrollUpUsingArrowButtonAndScrollDownFunctionality"
+"1. Launch browser
+2. Navigate to url 'http://automationexercise.com'
+3. Verify that home page is visible successfully
+4. Click 'Signup / Login' button
+5. Fill all details in Signup and create account
+6. Verify 'ACCOUNT CREATED!' and click 'Continue' button
+7. Verify ' Logged in as username' at top
+8. Add products to cart
+9. Click 'Cart' button
+10. Verify that cart page is displayed
+11. Click Proceed To Checkout
+12. Verify Address Details and Review Your Order
+13. Enter description in comment text area and click 'Place Order'
+14. Enter payment details: Name on Card, Card Number, CVC, Expiration date
+15. Click 'Pay and Confirm Order' button
+16. Verify success message 'Congratulations! Your order has been confirmed!'
+17. Click 'Delete Account' button
+18. Verify that 'ACCOUNT DELETED!' and click 'Continue' button","35495","Test Case 15: Place Order: Register before Checkout","Suite","Wed May 07 07:11:40 AST 2025","failed","Wed May 07 07:12:16 AST 2025","com.JodaynDemo.tests.TC15_OrderPlaceRegisterBeforeCheckout","Test","com.JodaynDemo.tests.TC15_OrderPlaceRegisterBeforeCheckout","placeOrderRegisterBeforeCheckout"
