@@ -1,0 +1,8 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"1. Launch browser
+2. Navigate to url 'http://automationexercise.com'
+3. Verify that home page is visible successfully
+4. Scroll down page to bottom
+5. Verify 'SUBSCRIPTION' is visible
+6. Scroll up page to top
+7. Verify that page is scrolled up and 'Full-Fledged practice website for Automation Engineers' text is visible on screen","1528","Test Case 26: Verify Scroll Up without 'Arrow' button and Scroll Down functionality","Suite","Wed May 07 09:01:53 AST 2025","passed","Wed May 07 09:01:55 AST 2025","com.JodaynDemo.tests.TC26_ScrollUpandScrollDownNoButtonUsage","Test","com.JodaynDemo.tests.TC26_ScrollUpandScrollDownNoButtonUsage","verifyScrollUpWithoutArrowButtonAndScrollDownFunctionality"

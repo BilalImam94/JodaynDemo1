@@ -1,0 +1,1 @@
+java.lang.AssertionError: Verify that brand products are displayed expected [Green Side Placket Detail  T-Shirt] but found [Green Side Placket Detail T-Shirt]

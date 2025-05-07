@@ -49,7 +49,7 @@ public class TC6_ContactUs extends TestBasic {
                 .okButtonClick()
                 .getAlertSuccess()
                 .getText();
-        Assert.assertEquals(alertSuccessText, "Success! Your details have been submitted successfully..", "Verify success message 'Success! Your details have been submitted successfully.' is visible");
+        Assert.assertEquals(alertSuccessText, "Success! Your details have been submitted successfully.", "Verify success message 'Success! Your details have been submitted successfully.' is visible");
     }
 
     @Step("Click 'Home' button and verify that landed to home page successfully")

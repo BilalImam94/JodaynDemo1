@@ -1,0 +1,124 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"1. Launch browser
+2. Navigate to url 'http://automationexercise.com'
+3. Verify that home page is visible successfully
+4. Click 'Signup / Login' button
+5. Fill all details in Signup and create account
+6. Verify 'ACCOUNT CREATED!' and click 'Continue' button
+7. Verify ' Logged in as username' at top
+8. Add products to cart
+9. Click 'Cart' button
+10. Verify that cart page is displayed
+11. Click Proceed To Checkout
+12. Verify that the delivery address and the billing address is same address filled at the time registration of account
+13. Click 'Delete Account' button
+14. Verify 'ACCOUNT DELETED!' and click 'Continue' button","1023","Test Case 23: Verify address details in checkout page","Suite","Wed May 07 09:33:22 AST 2025","broken","Wed May 07 09:33:23 AST 2025","com.JodaynDemo.tests.TC23_CheckoutValidateAddressDetails","Test","com.JodaynDemo.tests.TC23_CheckoutValidateAddressDetails","verifyAddressDetailsInCheckoutPage"
+"1. Launch browser
+2. Navigate to url 'http://automationexercise.com'
+3. Scroll to bottom of page
+4. Verify 'RECOMMENDED ITEMS' are visible
+5. Click on 'Add To Cart' on Recommended product
+6. Click on 'View Cart' button
+7. Verify that product is displayed in cart page","999","Test Case 22: Add to cart from Recommended items","Suite","Wed May 07 09:33:19 AST 2025","broken","Wed May 07 09:33:20 AST 2025","com.JodaynDemo.tests.TC22_AddtoCartRecommendedItems","Test","com.JodaynDemo.tests.TC22_AddtoCartRecommendedItems","AddToCartFromRecommendedItems"
+"1. Launch browser
+2. Navigate to url 'http://automationexercise.com'
+3. Verify that home page is visible successfully
+4. Click 'Signup / Login' button
+5. Fill email, password and click 'Login' button
+6. Verify 'Logged in as username' at top
+7. Add products to cart
+8. Click 'Cart' button
+9. Verify that cart page is displayed
+10. Click Proceed To Checkout
+11. Verify Address Details and Review Your Order
+12. Enter description in comment text area and click 'Place Order'
+13. Enter payment details: Name on Card, Card Number, CVC, Expiration date
+14. Click 'Pay and Confirm Order' button
+15. Verify success message 'Congratulations! Your order has been confirmed!'","1924","Test Case 16: Place Order: Login before Checkout","Suite","Wed May 07 09:32:55 AST 2025","broken","Wed May 07 09:32:57 AST 2025","com.JodaynDemo.tests.TC16_OrderPlaceLoginBeforeCheckout","Test","com.JodaynDemo.tests.TC16_OrderPlaceLoginBeforeCheckout","placeOrderLoginBeforeCheckout"
+"1. Launch browser
+2. Navigate to url 'http://automationexercise.com'
+3. Verify that home page is visible successfully
+4. Add products to cart
+5. Click 'Cart' button
+6. Verify that cart page is displayed
+7. Click Proceed To Checkout
+8. Click 'Register / Login' button
+9. Fill all details in Signup and create account
+10. Verify 'ACCOUNT CREATED!' and click 'Continue' button
+11. Verify ' Logged in as username' at top
+12. Click 'Cart' button
+13. Click 'Proceed To Checkout' button
+14. Verify Address Details and Review Your Order
+15. Enter description in comment text area and click 'Place Order'
+16. Enter payment details: Name on Card, Card Number, CVC, Expiration date
+17. Click 'Pay and Confirm Order' button
+18. Verify success message 'Congratulations! Your order has been confirmed!'
+19. Click 'Download Invoice' button and verify invoice is downloaded successfully
+20. Click 'Continue' button
+21. Click 'Delete Account' button
+22. Verify 'ACCOUNT DELETED!' and click 'Continue' button","11776","Test Case 24: Download Invoice after purchase order","Suite","Wed May 07 09:33:33 AST 2025","broken","Wed May 07 09:33:44 AST 2025","com.JodaynDemo.tests.TC24_InvoiceDownloadAfterPurchase","Test","com.JodaynDemo.tests.TC24_InvoiceDownloadAfterPurchase","downloadInvoiceAfterPurchaseOrder"
+"","0","setup","Suite","Wed May 07 09:33:52 AST 2025","broken","Wed May 07 09:33:52 AST 2025","com.JodaynDemo.tests.TC26_ScrollUpandScrollDownNoButtonUsage","Test","com.JodaynDemo.tests.TC26_ScrollUpandScrollDownNoButtonUsage","setup"
+"","0","setup","Suite","Wed May 07 09:33:12 AST 2025","broken","Wed May 07 09:33:12 AST 2025","com.JodaynDemo.tests.TC20_ProductSearchAndCartValidationAfterLogin","Test","com.JodaynDemo.tests.TC20_ProductSearchAndCartValidationAfterLogin","setup"
+"1. Launch browser
+2. Navigate to url 'http://automationexercise.com'
+3. Verify that home page is visible successfully
+4. Scroll down page to bottom
+5. Verify 'SUBSCRIPTION' is visible
+6. Click on arrow at bottom right side to move upward
+7. Verify that page is scrolled up and 'Full-Fledged practice website for Automation Engineers' text is visible on screen","1","Test Case 25: Verify Scroll Up using 'Arrow' button and Scroll Down functionality","Suite","Wed May 07 09:33:50 AST 2025","skipped","Wed May 07 09:33:50 AST 2025","com.JodaynDemo.tests.TC25_ScrollUpandScrollDown","Test","com.JodaynDemo.tests.TC25_ScrollUpandScrollDown","verifyScrollUpUsingArrowButtonAndScrollDownFunctionality"
+"1. Launch browser
+2. Navigate to url 'http://automationexercise.com'
+3. Verify that categories are visible on left side bar
+4. Click on 'Women' category
+5. Click on any category link under 'Women' category, for example: Dress
+6. Verify that category page is displayed and confirm text 'WOMEN - DRESS PRODUCTS'
+7. On left side bar, click on any sub-category link of 'Men' category
+8. Verify that user is navigated to that category page","1","Test Case 18: View Category Products","Suite","Wed May 07 09:33:06 AST 2025","skipped","Wed May 07 09:33:06 AST 2025","com.JodaynDemo.tests.TC18_ProductViewCategory","Test","com.JodaynDemo.tests.TC18_ProductViewCategory","viewCategoryProducts"
+"","1","setup","Suite","Wed May 07 09:33:50 AST 2025","broken","Wed May 07 09:33:50 AST 2025","com.JodaynDemo.tests.TC25_ScrollUpandScrollDown","Test","com.JodaynDemo.tests.TC25_ScrollUpandScrollDown","setup"
+"1. Launch browser
+2. Navigate to url 'http://automationexercise.com'
+3. Verify that home page is visible successfully
+4. Add products to cart
+5. Click 'Cart' button
+6. Verify that cart page is displayed
+7. Click 'X' button corresponding to particular product
+8. Verify that product is removed from the cart","1006","Test Case 17: Remove Products From Cart","Suite","Wed May 07 09:33:01 AST 2025","broken","Wed May 07 09:33:02 AST 2025","com.JodaynDemo.tests.TC17_ProductRemovalCart","Test","com.JodaynDemo.tests.TC17_ProductRemovalCart","removeProductsFromCart"
+"","2","setup","Suite","Wed May 07 09:33:06 AST 2025","broken","Wed May 07 09:33:06 AST 2025","com.JodaynDemo.tests.TC18_ProductViewCategory","Test","com.JodaynDemo.tests.TC18_ProductViewCategory","setup"
+"1. Launch browser
+2. Navigate to url 'http://automationexercise.com'
+3. Click on 'Products' button
+4. Verify user is navigated to ALL PRODUCTS page successfully
+5. Enter product name in search input and click search button
+6. Verify 'SEARCHED PRODUCTS' is visible
+7. Verify all the products related to search are visible
+8. Add those products to cart
+9. Click 'Cart' button and verify that products are visible in cart
+10. Click 'Signup / Login' button and submit login details
+11. Again, go to Cart page
+12. Verify that those products are visible in cart after login as well
+13. Remove all products that have been added
+14. Verify 'Cart is empty! Click here to buy products.' is visible","2","Test Case 20: Search Products and Verify Cart After Login","Suite","Wed May 07 09:33:13 AST 2025","skipped","Wed May 07 09:33:13 AST 2025","com.JodaynDemo.tests.TC20_ProductSearchAndCartValidationAfterLogin","Test","com.JodaynDemo.tests.TC20_ProductSearchAndCartValidationAfterLogin","searchProductsAndVerifyCartAfterLogin"
+"1. Launch browser
+2. Navigate to url 'http://automationexercise.com'
+3. Click on 'Products' button
+4. Verify that Brands are visible on left side bar
+5. Click on any brand name
+6. Verify that user is navigated to brand page and brand products are displayed
+7. On left side bar, click on any other brand link
+8. Verify that user is navigated to that brand page and can see products","1106","Test Case 19: View & Cart Brand Products","Suite","Wed May 07 09:33:09 AST 2025","broken","Wed May 07 09:33:10 AST 2025","com.JodaynDemo.tests.TC19_ProductBrandCartandView","Test","com.JodaynDemo.tests.TC19_ProductBrandCartandView","viewCartBrandProducts"
+"1. Launch browser
+2. Navigate to url 'http://automationexercise.com'
+3. Click on 'Products' button
+4. Verify user is navigated to ALL PRODUCTS page successfully
+5. Click on 'View Product' button
+6. Verify 'Write Your Review' is visible
+7. Enter name, email and review
+8. Click 'Submit' button
+9. Verify success message 'Thank you for your review.'","1168","Test Case 21: Add review on product","Suite","Wed May 07 09:33:15 AST 2025","broken","Wed May 07 09:33:16 AST 2025","com.JodaynDemo.tests.TC21_ProductReviewAdd","Test","com.JodaynDemo.tests.TC21_ProductReviewAdd","addReviewOnProduct"
+"1. Launch browser
+2. Navigate to url 'http://automationexercise.com'
+3. Verify that home page is visible successfully
+4. Scroll down page to bottom
+5. Verify 'SUBSCRIPTION' is visible
+6. Scroll up page to top
+7. Verify that page is scrolled up and 'Full-Fledged practice website for Automation Engineers' text is visible on screen","1","Test Case 26: Verify Scroll Up without 'Arrow' button and Scroll Down functionality","Suite","Wed May 07 09:33:52 AST 2025","skipped","Wed May 07 09:33:52 AST 2025","com.JodaynDemo.tests.TC26_ScrollUpandScrollDownNoButtonUsage","Test","com.JodaynDemo.tests.TC26_ScrollUpandScrollDownNoButtonUsage","verifyScrollUpWithoutArrowButtonAndScrollDownFunctionality"

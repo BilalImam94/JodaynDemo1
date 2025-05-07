@@ -1,0 +1,1 @@
+{"149666bfb00967d8ee6d9be1d80fec0c":{"statistic":{"failed":1,"broken":0,"skipped":0,"passed":0,"unknown":0,"total":1},"items":[{"uid":"2519995163ba664c","status":"failed","statusDetails":"Verify that can see products expected [Sleeveless Dress] but found [Sleeveless  Dress]","time":{"start":1746599172845,"stop":1746599182594,"duration":9749}}]}}

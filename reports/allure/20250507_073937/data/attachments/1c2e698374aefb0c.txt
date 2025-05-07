@@ -1,0 +1,1 @@
+java.lang.AssertionError: Verify that 'ACCOUNT DELETED!' is visible expected [ACCOUNT DELETED!E-commerce solutions] but found [ACCOUNT DELETED!]

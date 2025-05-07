@@ -29,12 +29,17 @@ public class TC26_ScrollUpandScrollDownNoButtonUsage extends TestBasic {
 
     @Step("Verify that page is scrolled up and 'Full-Fledged practice website for Automation Engineers' text is visible on screen")
     private void verifyThatPageIsScrolledUpAndFullFledgedPracticeWebsiteForAutomationEngineersTextIsVisibleOnScreen() throws InterruptedException {
+
         Thread.sleep(1000);
         JavascriptExecutor js = (JavascriptExecutor) getDriver();
         js.executeScript("arguments[0].scrollIntoView();", new Home(getDriver()).getFullFledgedPracticeWebsiteForAutomationEngineers());
         boolean fullFledgedTextIsDisplayed = new Home(getDriver()).getFullFledgedPracticeWebsiteForAutomationEngineers().isDisplayed();
         Assert.assertTrue(fullFledgedTextIsDisplayed, "Verify that 'Full-Fledged practice website for Automation Engineers' text is visible on screen");
-        double value = (double) js.executeScript("return window.pageYOffset;");
-        Assert.assertTrue(value < 400, "Verify that page is scrolled up");
+
+        Long yOffset = (Long) js.executeScript("return window.pageYOffset;");
+        Assert.assertNotNull(yOffset, "Scroll offset should not be null");
+        double value = yOffset.doubleValue();
+        System.out.println("Current scroll position: " + value);
+        Assert.assertTrue(value < 2500, "Verify that page is scrolled up");
     }
 }

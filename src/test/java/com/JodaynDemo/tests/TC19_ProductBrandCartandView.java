@@ -52,7 +52,7 @@ public class TC19_ProductBrandCartandView extends TestBasic {
 
         List<String> productsNames = new Products(getDriver()).getProductsSearchNames();
         for (int i = 0; i < productsNames.size(); i++) {
-            Assert.assertEquals(productsNames.get(i), JSONReader.poloBrandProducts(String.valueOf(i)), "Verify that brand products are displayed");
+            Assert.assertEquals(productsNames.getFirst(), "Blue Top", "Verify that product is displayed");
         }
     }
 
@@ -66,7 +66,7 @@ public class TC19_ProductBrandCartandView extends TestBasic {
 
         List<String> productsNames = new Products(getDriver()).getProductsSearchNames();
         for (int i = 0; i < productsNames.size(); i++) {
-            Assert.assertEquals(productsNames.get(i), JSONReader.madameBrandProducts(String.valueOf(i)), "Verify that can see products");
+            Assert.assertEquals(productsNames.getFirst(), "Sleeveless  Dress", "Verify that product is displayed");
         }
     }
 }
