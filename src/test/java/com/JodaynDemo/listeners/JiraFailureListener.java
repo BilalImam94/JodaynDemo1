@@ -83,10 +83,10 @@ public class JiraFailureListener implements ITestListener {
         String descriptionSummary = getDescription(error, errorMessage, errorType);
 
         JiraRestClient.createIssue(
-                "bimam9@gmail.com",
-                "ATATT3xFfGF0NfG-5Sg5fKXV4k8ntlhwt29MtU3c2itS8iIDrqgajynmyahV8je2vMhEsOAv1JIEFCuJHq19mbLNlVQoSoaG5n4cAR07Pacfn8CnQ63w-4JaTQ3ebMjlDsaQk-QfnrvIXHaR3XpG3O0S4bDYOovDdQ_LsRBZ0fm1jeodtIB9pIg=A512AF1A",
-                "https://bimam9.atlassian.net/",
-                "JOD",
+                "youremail",
+                "yourkey",
+                "yourURL",
+                "yourProject",
                 summary,
                 error
         );
